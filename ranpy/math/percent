@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+
+import skilstak.colors as c
+
+print(c.orange+"Welcome to the percent calculator!")
+print("Option A: Find percent")
+print("Option B: Find the percent of a number")
+
+option = input("Select your option > ").upper()
+
+
+if option == "A":
+    part = int(input("Part number - 'is' > "))
+    whole = int(input("Whole number - 'of' > "))
+    print(100 * float(part) / float(whole))
+  
+if option == "B":
+    percent = int(input("Percentage > "))
+    whole = int(input("Whole number - 'of' > "))
+    print((percent * whole) / 100.0)

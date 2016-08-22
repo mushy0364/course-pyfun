@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+
+import skilstak.colors as c
+
+print(c.cyan+"This is the area and volume calculator!")
+choice = input("Would you like to solve for area(A) or volume(V)? > ").upper()
+
+if choice == "A":
+    trap = input("Is this object a Trapezoid, Circle, Triangle or Rectangle? ").lower()
+    if trap == "trapezoid":
+        b1 = int(input("The length of one side of the trapezoid > "))
+        b2 = int(input("The length of the other side of the trapezoid > "))
+        height = int(input("The height of the trapezoid > "))
+        print((b1 + b2) / 2 * height)
+    elif trap == "rectangle":
+        length = int(input("The length of the rectangle > "))
+        width = int(input("The width of the rectangle > "))
+        print(length * width) 
+    elif trap == "triangle":
+        base = int(input("The base of the triangle > "))
+        height = int(input("The height of the triange > "))
+        print((base * height) / 2)
+    elif trap == "circle":
+        radius = int(input("The radius of the circle > "))
+        print(3.14 * (radius ** 2))
+            
+if choice == "V":
+    vol = input("Is this object a Cone/Pyramid, Cylinder, Sphere, Triangular Prism or Rectangular Prism > ").lower()
+    if vol == "cone/pyramid":
+        shape = input("Is this object a cone or a pyramid? > ").lower()
+        if shape == "cone":
+            radius = int(input("The radius of the cone > " ))
+            height = int(input("The height of the cone > "))
+            print(3.14 * (radius ** 2) * height / 3)
+        elif shape == "pyramid":
+            length = int(input("The length of the pyramid > "))
+            width = int(input("The width of the pyramid > "))
+            height = int(input("The height of the pyramid > "))
+            print(length * width * height / 3)
+    elif vol == "cylinder":
+        radius = int(input("The radius of the cylinder > "))
+        height = int(input("The height of the cylinder > "))
+        print(3.14 * (radius ** 2) / 3)
+    elif vol == "triangular prism":
+        base = int(input("The base of the triangular prism > "))
+        height = int(input("The height of the triangular prism > "))
+        length = int(input("The length of the triangular prism > "))
+        print((base * height / 2) * length)
+    elif vol == "rectangular prism":
+        length = int(input("The length of the rectangular prism > "))
+        width = int(input("The width of the rectangular prism > "))
+        height = int(input("The height of the rectangular prism > "))
+        print(length * width * height)
+    elif vol == "sphere":
+        radius = int(input("The radius of the sphere > "))
+        print((4 / 3) * 3.14 * radius ** 3)
+
+
+

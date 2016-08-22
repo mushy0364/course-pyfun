@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+import skilstak.colors as c
+
+add = input(c.green+"This is a simple calculator. Would you like to do addition? y/n ").lower()
+if add == "y":
+  first = int(input(c.green+"1st number - addend > "))
+  sec = int(input(c.green+"2nd number - addend > "))
+  print(first + sec)
+else:
+    sub = input(c.red+"subtraction? y/n ").lower()
+    if sub == "y":
+        first = int(input(c.red+"1st number - minuend > "))
+        sec = int(input(c.red+"2nd number - subtrahend > "))
+        print(first - sec)
+    else:
+        mult = input(c.blue+"multiplication? y/n ").lower()
+        if mult == "y":
+            first = int(input(c.blue+"1st number - multiplicand > "))
+            sec = int(input(c.blue+"2nd number - multiplicator > "))
+            print(first * sec)
+        else:
+            print(c.yellow+"You have chosen division!")
+            first = int(input(c.yellow+"1st number - dividend > "))
+            sec = int(input(c.yellow+"2nd number - divisor > "))
+            print(first / sec)
+            exit()
