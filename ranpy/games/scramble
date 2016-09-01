@@ -7,15 +7,16 @@ print("This is a word scramble game.")
 x = input("Would you like easy or hard mode? > ").lower()
 
 if x == "easy":
-    words = ("school, coding, lamp, joker, queen, basket, table, vase, gossip, couch")
+    words = ['school', 'coding', 'lamp', 'joker', 'queen', 'basket', 'table', 'vase', 'gossip', 'couch']
     word = random.choice(words)
-    correct = word
     tries = 3
-    while word and tries > 0:
-        print(random.shuffle(correct))
+    while tries > 0:
+        correct = (random.shuffle(word))
+        print(correct)
         guess = input("What is your guess? > ")
-        if guess == correct:
+        if guess == word:
             print("You guessed correctly!")
+            break
         else:
             tries -= 1
 

@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+
+import random
+
+L = ['Jeff','Joe','Bob']
+shuffle(L, int=lambda n: int(n - 1))
+print L
