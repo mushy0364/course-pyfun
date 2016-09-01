@@ -2,7 +2,7 @@
 
 import skilstak.colors as c
 
-print(c.orange+"Welcome to the percent calculator!")
+print(c.clear+c.orange+"Welcome to the percent calculator!")
 print("Option A: Find percent")
 print("Option B: Find the percent of a number")
 

@@ -2,7 +2,7 @@
 
 import skilstak.colors as c
 
-add = input(c.green+"This is a simple calculator. Would you like to do addition? y/n ").lower()
+add = input(c.clear+c.green+"This is a simple calculator. Would you like to do addition? y/n ").lower()
 if add == "y":
   first = int(input(c.green+"1st number - addend > "))
   sec = int(input(c.green+"2nd number - addend > "))

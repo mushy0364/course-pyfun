@@ -2,7 +2,7 @@
 
 import skilstak.colors as c
 
-print(c.cyan+"This is the area and volume calculator!")
+print(c.clear+c.cyan+"This is the area and volume calculator!")
 choice = input("Would you like to solve for area(A) or volume(V)? > ").upper()
 
 if choice == "A":
