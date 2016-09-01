@@ -2,16 +2,17 @@
 
 import skilstak.colors as c
 import random
+import strings
 
 print("This is a word scramble game.")
 x = input("Would you like easy or hard mode? > ").lower()
 
 if x == "easy":
     words = ['school', 'coding', 'lamp', 'joker', 'queen', 'basket', 'table', 'vase', 'gossip', 'couch']
-    word = random.choice(words)
+    word = strings.split(random.choice(words),"")
     tries = 3
     while tries > 0:
-        correct = (random.shuffle(word))
+        correct = random.shuffle(word)
         print(correct)
         guess = input("What is your guess? > ")
         if guess == word:
@@ -21,6 +22,6 @@ if x == "easy":
             tries -= 1
 
 if x == "hard":
-    words = ("automobile, television, refridgerator, countertop, granite, soundbar, magazine, shopping, remote, coaster")
+    words = ("automobile, television, refrigerator, countertop, granite, soundbar, magazine, shopping, remote, coaster")
     word = random.choice(words)
     correct = word
