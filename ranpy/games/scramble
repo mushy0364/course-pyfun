@@ -9,9 +9,9 @@ x = input("Would you like easy or hard mode? > ").lower()
 if x == "easy":
     words = ['school', 'coding', 'lamp', 'joker', 'queen', 'basket', 'table', 'vase', 'gossip', 'couch']
     word = list(random.choice(words))
+    correct = str(random.choice(words))
     tries = 3
     while tries > 0:
-        correct = random.shuffle(word)
         print(correct)
         guess = input("What is your guess? > ")
         if guess == word:
