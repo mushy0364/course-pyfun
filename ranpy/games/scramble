@@ -10,15 +10,14 @@ if x == "easy":
     words = ("school, coding, lamp, joker, queen, basket, table, vase, gossip, couch")
     word = random.choice(words)
     correct = word
-    scramble = ""
-    while word:
-        pos = random.randrange(len(word))
-        scramble += word[pos]
-        word = word[:pos] + word[(pos + 1)]
-        print(correct)
+    tries = 3
+    while word and tries > 0:
+        print(random.shuffle(correct))
         guess = input("What is your guess? > ")
         if guess == correct:
             print("You guessed correctly!")
+        else:
+            tries -= 1
 
 if x == "hard":
     words = ("automobile, television, refridgerator, countertop, granite, soundbar, magazine, shopping, remote, coaster")
