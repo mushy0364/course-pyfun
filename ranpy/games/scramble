@@ -3,12 +3,12 @@
 import skilstak.colors as c
 import random
 
-print("This is a word scramble game.")
+print(c.clear+c.green+"This is a word scramble game.")
 x = input("Would you like easy or hard mode? > ").lower()
 
 if x == "easy":
     words = ['school', 'coding', 'lamp', 'joker', 'queen', 'basket', 'table', 'vase', 'gossip', 'couch']
-    word = list(random.choice(words))
+    word = random.choice(words)
     shuffled = list(word)
     random.shuffle(shuffled)
     tries = 3
@@ -21,10 +21,16 @@ if x == "easy":
             break
         else:
             tries -= 1
+            print("Try again!")
+    while tries == 0:
+        print("You lose!")
+        print("The word was " + word)
+        break
+
 
 if x == "hard":
     words = ('automobile', 'television', 'refrigerator', 'countertop', 'granite', 'soundbar', 'magazine', 'shopping', 'remote', 'coaster')
-    word = list(random.choice(words))
+    word = random.choice(words)
     shuffled = list(word)
     random.shuffle(shuffled)
     tries = 3
@@ -37,3 +43,8 @@ if x == "hard":
             break
         else:
             tries -=1
+            print("Try again!")
+    while tries == 0:
+        print("You lose!")
+        print("The word was " + word)
+        break
