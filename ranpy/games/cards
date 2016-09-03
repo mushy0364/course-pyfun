@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+import random
+import skilstak.colors as c
+
+print(c.red+"Hello. This is a 2 card program, where you choose one card and swap it.")
+print("This program along with the coin program is good for settling debates.")
+print("In this program, the person with the highest total wins!")
+print("Face cards count as 10's, and aces count as 11!")
+cards = ['ace', '2', '3', '4', '5', '6', '7', '8',' 9', '10', 'jack', 'queen', 'king']
+hand1 = random.choice(cards)
+hand2 = random.choice(cards)
+
+print("Your cards are " + hand1 + ", " + hand2)
+
+x = input("Which card would you like to trade in for a new one? > ")
+
+if x == hand1:
+    hand1 = random.choice(cards)
+    print("Your cards are " + hand1 + ", "+ hand2)
+if x == hand2:
+    hand2 = random.choice(cards)
+    print("Your cards are " + hand1 + ", " + hand2)
