@@ -20,12 +20,13 @@ if x == "easy":
             print("You guessed correctly!")
             break
         else:
-            tries -= 1
-            print("Try again!")
-    while tries == 0:
-        print("You lose!")
-        print("The word was " + word)
-        break
+            if tries == 1:
+                print("You lose!")
+                print("The word was " + word)
+                break
+            else:
+                tries -= 1
+                print("Try again!")
 
 
 if x == "hard":
@@ -42,9 +43,10 @@ if x == "hard":
             print("You guessed correctly!")
             break
         else:
-            tries -=1
-            print("Try again!")
-    while tries == 0:
-        print("You lose!")
-        print("The word was " + word)
-        break
+            if tries == 1:
+                print("You lose!")
+                print("The word was " + word)
+                break
+            else:
+                tries -=1
+                print("Try again!")
