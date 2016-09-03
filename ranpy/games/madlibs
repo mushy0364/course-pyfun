@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+import skilstak.colors as c
+
+print(c.magenta+"A summer trip")
+a = input("Give me a name > ")
+b = input("Give me a place > ")
+c = input("Give me an adjective > ")
+d = input("Give me a plural noun > ")
+e = input("Give me an adjective > ")
+f = input("Give me a plural noun > ")
+g = input("Give me a place > ")
+h = input("Give me an action verb > ")
+i = input("Give me a plural noun > ")
+j = input("Give me a plural noun > ")
+k = input("Give me a plural noun > ")
+l = input("Give me an action verb > ")
+m = input("Give me an action verb > ")
+n = input("Give me an adjective > ")
+
+print("Last summer, my mom and dad took me and " + a + " on a trip to " + b + ". The weather there is very " + c + "! Northern " + b + " has many " + d + ", and they make " + e + " " + f + " there. Many people also go to " + g + " to " + h + " or see the " + i + ". The people that live there love to eat " + j + " and are very proud of their big " + k + ". They also like to " + l + " in the sun and swim in the " + m + "! It was really " + n + " trip!" )
