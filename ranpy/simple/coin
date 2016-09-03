@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import skilstak.colors as c
+import random
+
+print(c.yellow+"This program and the cards program is great for settling debates.")
+print("This is a simple program, where you flip a coin, and the result is selected.")
+print("The person who guessed the outcome wins.")
+while True:
+    coinbank = ['heads', 'tails']
+    flip = random.choice(coinbank)
+    print("The outcome was " + flip)
+    choice = input("Would you like to flip the coin again? y/n > ").lower()
+    if choice == "y":
+        continue
+    else:
+        break
