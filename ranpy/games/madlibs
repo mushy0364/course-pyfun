@@ -2,7 +2,7 @@
 
 import skilstak.colors as c
 
-print(c.magenta+"A summer trip")
+print(c.magenta+"A summer trip - madlibs")
 a = input("Give me a name > ")
 b = input("Give me a place > ")
 c = input("Give me an adjective > ")
