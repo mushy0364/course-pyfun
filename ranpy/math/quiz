@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+import skilstak.colors as c
+print("You are taking a math test.")
+q1 = input("Question 1: Solve for x - 4(4x) + 28 = 76 > ").lower()
+total = 0
+if q1 == "3":
+    print("Correct!")
+    total += 1
+else:
+    print("Incorrect!")
+    total -= 1
+q2 = input("Question 2: What is anything to the power of 0? > ").lower
+if q2 == "1":
+    print("Correct!")
+    total += 1
+else:
+    print("Incorrect!")
+    total -= 1
+q3 = input("Question 3: What is the quadratic forumala?(x = ___, use V for square root) > ").lower()
+if q3 == "-bVb^2_4ac/2a":
+    print("Correct!")
+    total += 1
+else:
+    print("It was difficult to write, so i won't count it right or wrong!")
+q4 = input("")
+
