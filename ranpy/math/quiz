@@ -17,10 +17,10 @@ else:
     print("Incorrect!")
     total -= 1
 q3 = input("Question 3: What is the quadratic forumala?(x = ___, use V for square root) > ").lower()
-if q3 == "-bVb^2_4ac/2a":
+if q3 == "-bVb^2-4ac/2a":
     print("Correct!")
     total += 1
 else:
     print("It was difficult to write, so i won't count it right or wrong!")
-q4 = input("")
+q4 = input("What is ")
 
