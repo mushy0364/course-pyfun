@@ -3,58 +3,62 @@
 import skilstak.colors as c
 import random
 
-print(c.clear+c.green+"This is a word scramble game.")
-x = input("Would you like easy or hard mode? easy/hard > ").lower()
+try:
+    print(c.clear+c.green+"This is a word scramble game.")
+    x = input("Would you like easy or hard mode? easy/hard > ").lower()
 
-if x == "easy":
-    words = ['school', 'coding', 'lamp', 'joker', 'queen', 'basket', 'table', 'vase', 'gossip', 'couch']
-    word = random.choice(words)
-    shuffled = list(word)
-    random.shuffle(shuffled)
-    tries = 3
-    correct = ''.join(shuffled)
-    print(c.yellow+correct)
-    while tries > 0:
-        guess = input(c.green+"What is your guess? > ")
-        if guess == word:
-            print("You guessed correctly!")
-            break
-        else:
-            if tries == 1:
-                print("You lose!")
-                print("The word was " + word)
+
+    if x == "easy":
+        words = ['school', 'coding', 'lamp', 'joker', 'queen', 'basket', 'table', 'vase', 'gossip', 'couch']
+        word = random.choice(words)
+        shuffled = list(word)
+        random.shuffle(shuffled)
+        tries = 3
+        correct = ''.join(shuffled)
+        print(c.yellow+correct)
+        while tries > 0:
+            guess = input(c.green+"What is your guess? > ")
+            if guess == word:
+                print("You guessed correctly!")
                 break
             else:
-                if tries == 2:
-                    tries -= 1
-                    print("Try again! You have " + str(tries) + " try left.")
+                if tries == 1:
+                    print("You lose!")
+                    print("The word was " + word)
+                    break
                 else:
-                    tries -= 1
-                    print("Try again! You have " + str(tries) + " tries left.")
+                    if tries == 2:
+                        tries -= 1
+                        print("Try again! You have " + str(tries) + " try left.")
+                    else:
+                        tries -= 1
+                        print("Try again! You have " + str(tries) + " tries left.")
 
 
-if x == "hard":
-    words = ('automobile', 'television', 'refrigerator', 'countertop', 'granite', 'soundbar', 'magazine', 'shopping', 'remote', 'coaster')
-    word = random.choice(words)
-    shuffled = list(word)
-    random.shuffle(shuffled)
-    tries = 3
-    correct = ''.join(shuffled)
-    print(c.yellow+correct)
-    while tries > 0:
-        guess = input(c.green+"What is your guess? > ")
-        if guess == word:
-            print("You guessed correctly!")
-            break
-        else:
-            if tries == 1:
-                print("You lose!")
-                print("The word was " + word)
+    if x == "hard":
+        words = ('automobile', 'television', 'refrigerator', 'countertop', 'granite', 'soundbar', 'magazine', 'shopping', 'remote', 'coaster')
+        word = random.choice(words)
+        shuffled = list(word)
+        random.shuffle(shuffled)
+        tries = 3
+        correct = ''.join(shuffled)
+        print(c.yellow+correct)
+        while tries > 0:
+            guess = input(c.green+"What is your guess? > ")
+            if guess == word:
+                print("You guessed correctly!")
                 break
             else:
-                if tries == 2:
-                    tries -=1
-                    print("Try again! You have " + str(tries) + " try left.")
+                if tries == 1:
+                    print("You lose!")
+                    print("The word was " + word)
+                    break
                 else:
-                    tries -= 1
-                    print("Try again! You have " + str(tries) + " tries left.")
+                    if tries == 2:
+                        tries -=1
+                        print("Try again! You have " + str(tries) + " try left.")
+                    else:
+                        tries -= 1
+                        print("Try again! You have " + str(tries) + " tries left.")
+except KeyboardInterrupt:
+    print(c.clear + c.green + "Why tho?")
