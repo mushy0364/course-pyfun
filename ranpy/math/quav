@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+import skilstak.colors as s
+
+print(s.clear+s.yellow+"So you want to convert a Quadratic Function in Standard Form into Vertex Form? Look no further!")
+print("ax^2 + bx + c")
+a = int(input("What is the 'a' value of the Quadratic Funtion? > "))
+b = int(input("What is the 'b' value of the Quadratic Function? > "))
+c = int(input("What is the 'c' value of the Quadratic Funtion? > "))
+if a < 0:
+    aos = (-b/2*a)
+    y = (a*(aos)**2 + b*(aos) + c)
+    print(s.orange+"Vertex is =","(", str(aos), ",", str(y),")")
+    print("aos = x =", str(aos))
+    print("Max at", str(y))
+    print("Range: (-infinity,", str(y), "]")
+    print(s.yellow+"The Vertex Form of this Quadratic Function is:")
+    print(s.orange+"y =",str(a), "(x -", str(aos), ")^2 +", str(y) + ".")
+else:
+    aos = (-b/2*a)
+    y = (a*(aos)**2 + b*(aos) + c)
+    print(s.orange+"Vertex is =" + "(" + str(aos) + "," + str(y) + ")")
+    print("aos = x =", str(aos))
+    print("Min at", str(y))
+    print("Range: [", str(y), ",infinity)")
+    print(s.yellow+"The Vertex Form of this Quadratic Funtion is:")
+    print(s.orange+"y =",str(a) + "(x -" + str(aos) +")^2 +" + str(y) +".")
