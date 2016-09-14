@@ -8,7 +8,7 @@ a = float(input("What is the 'a' value of the Quadratic Funtion? > "))
 b = float(input("What is the 'b' value of the Quadratic Function? > "))
 c = float(input("What is the 'c' value of the Quadratic Funtion? > "))
 if a < 0:
-    aos = (-b/2*a)
+    aos = -b/(2*a)
     y = (a*(aos)**2 + b*(aos) + c)
     print(s.orange+"Vertex is =","(", str(aos), ",", str(y),")")
     print("aos = x =", str(aos))
@@ -17,7 +17,7 @@ if a < 0:
     print(s.yellow+"The Vertex Form of this Quadratic Function is:")
     print(s.orange+"y =",str(a), "(x -", str(aos), ")^2 +", str(y) + ".")
 else:
-    aos = (-b/2*a)
+    aos = -b/(2*a)
     y = (a*(aos)**2 + b*(aos) + c)
     print(s.orange+"Vertex is =","(", str(aos), ",", str(y), ")")
     print("aos = x =", str(aos))
