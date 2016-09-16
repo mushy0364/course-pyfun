@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+
+import random
+
+number = random.randint(0,100)
+x = int(input("Guess a number, 0-100! > "))
+while x != number:
+    if x > number:
+        print("Guess lower!")
+        x =int( input("Guess another number! > "))
+        continue
+    if x < number:
+        print("Guess higher!")
+        x = int(input("Guess another number! > "))
+        continue
+if x == number:
+    print("You guessed the number! You win!")
+    exit()
