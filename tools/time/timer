@@ -13,7 +13,7 @@ def tpass():
             seconds = 0
             minutes += 1
         else:
-            seconds += 1
+            seconds = 1
 
 timer = input("Please select the amount of time you would like to set on the timer.(Minutes) > ")
 
