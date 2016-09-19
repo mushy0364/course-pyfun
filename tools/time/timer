@@ -15,11 +15,11 @@ def tpass():
         else:
             seconds += 1
 
-timer = input("Please select the amount of time you would like to set on the timer.(Minutes) > ")
+timer = input("How long would you like to set the timer for? > ")
 
 while tpass() < timer:
     tpass()
-    timer -= 1
+    timer -= 60
 
 if tpass() == timer:
     print("Times Up! BING BING BING BING")

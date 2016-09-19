@@ -61,4 +61,4 @@ try:
                         tries -= 1
                         print("Try again! You have " + str(tries) + " tries left.")
 except KeyboardInterrupt:
-    print(c.clear + c.green + "Why tho?")
+    print(c.clear + c.green + "Are you a quitter? Is it too hard? Try easy mode next time! :) ")
