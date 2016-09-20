@@ -2,14 +2,13 @@
 
 import random
 
-weapon_bank = ["rock","paper","scissors"]
-win_talley = 0
-
 def rockpaperscissors():
+    win_talley = 0
     while True:
-        usr_input("Would you like to play rock paper scissors? y/n > " ).lower().strip()
-        if usr_input() == "y":
-            selection = input("Rock, paper, or scissors? > ")
+        weapon_bank = ['rock','paper','scissors']
+        usr_input = input("Would you like to play rock paper scissors? y/n > " ).lower().strip()
+        if usr_input == "y":
+            selection = input("Rock, paper, or scissors? > ").lower().strip()
             computer_select = random.choice(weapon_bank)
             if selection == "rock":
                 if computer_select == "scissors":
@@ -29,9 +28,33 @@ def rockpaperscissors():
                 if computer_select == "scissors":
                     print("You lost!")
                     print("Wins = ",win_talley)
+                    continue
                 if computer_select == "rock":
                     print("You win!")
                     win_talley += 1
                     print("Wins = ",win_talley)
+                    continue
                 if computer_select == "paper":
+                    print("Tie!")
+                    print("Wins = ",win_talley)
+                    continue
+            if selection == "scissors":
+                if computer_select == "scissors":
+                    print("Tie!")
+                    print("Wins = ",win_talley)
+                    continue
+                if computer_select == "rock":
+                    print("You lost!")
+                    print("Wins = ",win_talley)
+                    continue
+                if computer_select == "paper":
+                    print("You win!")
+                    win_talley += 1
+                    print("Wins = ",win_talley)
+                    continue
+            else:
+                break
+        else:
+            break
 
+rockpaperscissors()
