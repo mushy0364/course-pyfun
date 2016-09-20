@@ -5,10 +5,10 @@ import random
 
 try:
     print(c.clear+c.green+"This is a word scramble game.")
-    x = input("Would you like easy or hard mode? easy/hard > ").lower()
+    difficulty = input("Would you like easy or hard mode? easy/hard > ").lower()
 
 
-    if x == "easy":
+    if difficulty == "easy":
         words = ['school', 'coding', 'lamp', 'joker', 'queen', 'basket', 'table', 'vase', 'gossip', 'couch']
         word = random.choice(words)
         shuffled = list(word)
@@ -35,7 +35,7 @@ try:
                         print("Try again! You have " + str(tries) + " tries left.")
 
 
-    if x == "hard":
+    if difficulty == "hard":
         words = ('automobile', 'television', 'refrigerator', 'countertop', 'granite', 'soundbar', 'magazine', 'shopping', 'remote', 'coaster')
         word = random.choice(words)
         shuffled = list(word)

@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+
+from subprocess import call
+
+def say(text):
+    call('say' + text)
+
+say('Hello World')
