@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+whutup = int(input("time plz > "))
+xhile x <= shutup:
+    print(x)
+    x += 1
+print("DING DING DING")
+
