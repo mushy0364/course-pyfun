@@ -10,4 +10,5 @@ def simon():
     time.sleep(.25)
     c.clear
 
-simon()
+
+
