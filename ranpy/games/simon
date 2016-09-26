@@ -2,13 +2,26 @@
 
 import random
 import time
+import skilstak.colors as c
+import sys
 
-def simon():
-    number = [1,2,3,4]
+number = random.randint(0,9)
+def simon(choice):
+    wins = 0
+    while wins <= 4:
+        print(choice)
+        time.sleep(.25)
+        print(c.clear + "")
+        chance = input(">")
+        if chance == choice:
+            wins +1
+            continue
+        else:
+            print("You lose!")
+            sys.exit()
+        
+
+while True:
     choice = random.choice(number)
-    print(choice)
-    time.sleep(.25)
-    c.clear
-
-
+    simon(choice)
 

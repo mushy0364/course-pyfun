@@ -3,24 +3,13 @@
 import time
 import skilstak.colors as c
 
-def tpass():
-    minutes = 0
-    seconds = 0
-    continued = 0
-    while continued != 1:
-        time.sleep(60)
-        if seconds == 59:
-            seconds = 0
-            minutes += 1
-        else:
-            seconds += 1
+time_input = int(input("Please input the amount of time you would like to set on the timer in seconds > "))
+current = 0
 
-timer = input("How long would you like to set the timer for? > ")
+while current <= time_input:
+    print(current)
+    time.sleep(1)
+    current += 1
 
-while tpass() < timer:
-    tpass()
-    timer -= 60
-
-if tpass() == timer:
-    print("Times Up! BING BING BING BING")
+print(c.multi("DING DING DING"))
 
