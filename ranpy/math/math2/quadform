@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+
+import colors as s
+
+print("This is a calculator to solve a quadratic equation in standard form using the quadratic formula")
+
+a = float(input("What is the 'a' value of the quadratic equation? > "))
+b = float(input("What is the 'b' value of the quadratic equation? > "))
+c = float(input("What is the 'c' value of the quadratic equation? > "))
+
+discrim = (b**2-4*a*c)**1/2
+solution = -(b) + discrim/2*a
+def solve():
+    if solution > 0:
+        sol = solution
+    if solution < 0:
+        sol = solution * -1
+    if discrim == 0:
+        print("One solution = ", end = '')
+        print(sol)
+    if discrim > 0:
+        print("Two solutions = ", end = '')
+        print("-",sol,",",sol)
+
+if discrim < 0:
+    print("No solution!")
+if discrim == 0:
+    solve()
+if discrim > 0:
+    solve()
