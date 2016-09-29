@@ -2,29 +2,56 @@
 
 import colors as s
 
-print("This is a calculator to solve a quadratic equation in standard form using the quadratic formula")
+print(s.green+"This is a calculator to solve a quadratic equation in standard form using the quadratic formula")
+print("")
 
 a = float(input("What is the 'a' value of the quadratic equation? > "))
 b = float(input("What is the 'b' value of the quadratic equation? > "))
 c = float(input("What is the 'c' value of the quadratic equation? > "))
 
-discrim = (b**2-4*a*c)**1/2
-solution = -(b) + discrim/2*a
+discrim = (b**2+(-4*a*c))
+newb = -1*(b)
+over2a = 2*a
+sqrtdiscrim = discrim**1/2
+solution1p1 = (-1*(newb)) + (sqrtdiscrim)
+solution2p1 = (-1*(newb)) - (sqrtdiscrim)
+solution1p2 = solution1p1/over2a
+solution2p2 = solution2p1/over2a
+
 def solve():
-    if solution > 0:
-        sol = solution
-    if solution < 0:
-        sol = solution * -1
     if discrim == 0:
-        print("One solution = ", end = '')
-        print(sol)
+        print("One real solution = x = ", end = '')
+        print(solution1p2)
     if discrim > 0:
-        print("Two solutions = ", end = '')
-        print("-",sol,",",sol)
+        print("Two real solutions = x = ", end = '')
+        print(solution1p2,",",solution2p2)
+
+print("")
+print("discrim = b^2 -4ac")
+print("discrim = ("+str(b)+")^2 -4("+str(a)+")("+str(c)+")")
+print("discrim = ", discrim)
+print("")
+
+def quadform():
+    print("x = -b ±√b^2-4ac")
+    print("    --------------")
+    print("          2a      ")
+    print("")
+    print("x =", str(newb)+" ±√"+str(b)+"^2 -4("+str(a)+")("+str(c)+")")
+    print("    ----------------------------")
+    print("              2("+str(a)+")")
+    print("")
+    print("x =",str(newb)+" ±√"+str(discrim))
+    print("    -------------")
+    print("        ",over2a)
 
 if discrim < 0:
-    print("No solution!")
+    print("No real solutions!")
 if discrim == 0:
+    quadform()
+    print("")
     solve()
 if discrim > 0:
+    quadform()
+    print("")
     solve()
