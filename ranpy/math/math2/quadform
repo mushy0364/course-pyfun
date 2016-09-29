@@ -27,17 +27,17 @@ def solve():
         print(solution1p2,",",solution2p2)
 
 print("")
-print("discrim = b^2 -4ac")
-print("discrim = ("+str(b)+")^2 -4("+str(a)+")("+str(c)+")")
+print("discrim = b²-4ac")
+print("discrim = ("+str(b)+")²-4("+str(a)+")("+str(c)+")")
 print("discrim = ", discrim)
 print("")
 
 def quadform():
-    print("x = -b ±√b^2-4ac")
+    print("x = -b ±√b²-4ac")
     print("    --------------")
     print("          2a      ")
     print("")
-    print("x =", str(newb)+" ±√"+str(b)+"^2 -4("+str(a)+")("+str(c)+")")
+    print("x =", str(newb)+" ±√("+str(b)+")²-4("+str(a)+")("+str(c)+")")
     print("    ----------------------------")
     print("              2("+str(a)+")")
     print("")
