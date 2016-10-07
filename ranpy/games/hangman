@@ -8,15 +8,18 @@ print("It's time to play hangman!")
 bank = ['hangman', 'bodywash', 'fairy', 'wizard', 'python', 'coding']
 word = random.choice(bank)
 guesses = 6
-unknown = len(word)*'_'
+unknown = len(word)*' _ '
 
 while guesses <= 6:
     guess = input("Which letter will you guess? > ")
     if guess in word:
         print("This letter is in the word!")
-    else:
-        guesses -= 1
-        print("Guesses left =",str(guesses))
+        print(unknown)
     if guesses == 0:
         print("You lose!")
         sys.exit()
+    elif guess not in word:
+        guesses -= 1
+        print("Guesses left =",str(guesses))
+        print(unknown)
+
