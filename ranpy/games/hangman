@@ -2,17 +2,21 @@
 
 import skilstak.colors as c
 import random
+import sys
 
 print("It's time to play hangman!")
 bank = ['hangman', 'bodywash', 'fairy', 'wizard', 'python', 'coding']
 word = random.choice(bank)
-guesses = 0
+guesses = 6
+unknown = len(word)*'_'
 
-while guesses < 6:
+while guesses <= 6:
     guess = input("Which letter will you guess? > ")
     if guess in word:
         print("This letter is in the word!")
     else:
-        guess += 1
-    if guesses == 5:
+        guesses -= 1
+        print("Guesses left =",str(guesses))
+    if guesses == 0:
         print("You lose!")
+        sys.exit()
