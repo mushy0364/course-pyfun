@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+word = list(input("What word to guess?"))
+hidden_word = [' _ '] * len(word)
+print(word)
+print(hidden_word)
+guess = list(input("Which letter?"))
+if guess in word:
+    print("Letter is in the word")
