@@ -60,10 +60,11 @@ while guesses <= 6:
                     print("The word was",word+"!")
                     sys.exit()
     if guesses == 1:
+        print(ascii[x])
         print("You lose!")
         sys.exit()
     elif guess not in word:
         guesses -= 1
-        ascii = x+1
+        x += 1
         continue
 
