@@ -14,7 +14,7 @@ while guesses <= 7:
     print("Letters used =",str(guessed))
     print(hidden_word)
     guess = input("Which letter will you guess? > ").lower().strip()
-    if guess in guessed:
+    while guess in guessed:
         print("You've already guessed this word!")
         guess = input("Which letter will you guess? > ").lower()
     guessed.append(guess)
