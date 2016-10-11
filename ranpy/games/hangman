@@ -6,11 +6,42 @@ import sys
 
 print(c.clear+"It's time to play hangman!")
 word = input("Player 1, please insert the word for Player 2 to guess > ").lower()
-guesses = 7
+guesses = 6
+x = 0
 hidden_word = [' _ ']* len(word)
 guessed = []
-while guesses <= 7:
-    print(c.clear+"Guesses left = "+str(guesses))
+ascii = ['''|-----|
+                  |
+                  |
+                 ---''',
+         '''|-----|
+            0     |
+                  |
+                 ---''',
+         '''|-----|
+            0     |
+            |     |
+                 ---''',
+         '''|-----|
+            0     |
+           /|     |
+                 ---''',
+         '''|-----|
+            0     |
+           /|\    |
+                 ---''',
+         '''|-----|
+            0     |
+           /|\    |
+           /     ---''',
+                  
+          '''|-----|
+             0     |
+            /|\    |
+            / \   ---''']
+while guesses <= 6:
+    print(ascii[x])
+    print("Guesses left = "+str(guesses))
     print("Letters used =",str(guessed))
     print(hidden_word)
     guess = input("Which letter will you guess? > ").lower().strip()
@@ -33,5 +64,6 @@ while guesses <= 7:
         sys.exit()
     elif guess not in word:
         guesses -= 1
+        ascii = x+1
         continue
 
