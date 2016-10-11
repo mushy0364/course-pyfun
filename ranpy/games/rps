@@ -10,7 +10,7 @@ def rockpaperscissors():
         if usr_input == "y":
             selection = input("Rock, paper, or scissors? > ").lower().strip()
             computer_select = random.choice(weapon_bank)
-            if selection == "rock":
+            if selection == "rock" or "r":
                 if computer_select == "scissors":
                     print("You win!")
                     win_talley += 1
@@ -24,7 +24,7 @@ def rockpaperscissors():
                     print("You lost!")
                     print("Wins = ",win_talley)
                     continue
-            if selection == "paper":
+            if selection == "paper" or "p":
                 if computer_select == "scissors":
                     print("You lost!")
                     print("Wins = ",win_talley)
@@ -38,7 +38,7 @@ def rockpaperscissors():
                     print("Tie!")
                     print("Wins = ",win_talley)
                     continue
-            if selection == "scissors":
+            if selection == "scissors" or "s":
                 if computer_select == "scissors":
                     print("Tie!")
                     print("Wins = ",win_talley)
