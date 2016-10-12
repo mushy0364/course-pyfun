@@ -10,43 +10,42 @@ guesses = 6
 x = 0
 hidden_word = [' _ ']* len(word)
 guessed = []
-ascii = ['''|-----|
-                  |
-                  |
-                 ---''',
-         '''|-----|
-            0     |
-                  |
-                 ---''',
-         '''|-----|
-            0     |
-            |     |
-                 ---''',
-         '''|-----|
-            0     |
-           /|     |
-                 ---''',
-         '''|-----|
-            0     |
-           /|\    |
-                 ---''',
-         '''|-----|
-            0     |
-           /|\    |
-           /     ---''',
-                  
-          '''|-----|
-             0     |
-            /|\    |
-            / \   ---''']
+ascii = [''' |-----|
+       |
+       |
+      ---''',
+         ''' |-----|
+ 0     |
+       |
+      ---''',
+         ''' |-----|
+ 0     |
+ |     |
+      ---''',
+         ''' |-----|
+ 0     |
+/|     |
+      ---''',
+         ''' |-----|
+ 0     |
+/|\    |
+      ---''',
+         ''' |-----|
+ 0     |
+/|\    |
+/     ---''',         
+          ''' |-----|
+ 0     |
+/|\    |
+/ \   ---''']
 while guesses <= 6:
-    print(ascii[x])
+    print(c.clear+ascii[x])
     print("Guesses left = "+str(guesses))
     print("Letters used =",str(guessed))
     print(hidden_word)
     guess = input("Which letter will you guess? > ").lower().strip()
     while guess in guessed:
-        print("You've already guessed this word!")
+        print("You've already guessed this letter!")
         guess = input("Which letter will you guess? > ").lower()
     guessed.append(guess)
     if guess in word:
@@ -60,6 +59,7 @@ while guesses <= 6:
                     print("The word was",word+"!")
                     sys.exit()
     if guesses == 1:
+        x += 1
         print(ascii[x])
         print("You lose!")
         sys.exit()
