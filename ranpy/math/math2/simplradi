@@ -11,4 +11,3 @@ for num in persq[::-1]:
 	if radical % num <= 0:
 		print(num ** 0.5,"√",radical/num)
 		break
-	
