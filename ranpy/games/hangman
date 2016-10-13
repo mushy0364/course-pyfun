@@ -4,7 +4,7 @@ import colors as c
 import random
 import sys
 
-print("It's time to play hangman!")
+print(c.clear+"It's time to play hangman!")
 word = input("Player 1, please insert the word for Player 2 to guess > ").lower()
 guesses = 6
 x = 0
@@ -39,7 +39,7 @@ ascii = [''' |-----|
 /|\    |
 / \   ---''']
 while guesses <= 6:
-    print(ascii[x])
+    print(c.clear+ascii[x])
     print("Guesses left = "+str(guesses))
     print("Letters used =",str(guessed))
     print(hidden_word)
@@ -65,6 +65,7 @@ while guesses <= 6:
         x += 1
         print(ascii[x])
         print("You lose!")
+        print("The word was "+word+"!")
         sys.exit()
     elif guess not in word:
         guesses -= 1
