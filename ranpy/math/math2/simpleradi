@@ -11,15 +11,11 @@ for num in persq[::-1]:
         radical = radical * -1
         if radical in persq:
             print(str(radical ** (1/2))+"i")
-            break
-        if radical % num <= 0:
+        elif radical % num <= 0:
             print("Made it")
             print(str(num ** (1/2))+"i√"+str(radical/num))
-            break
     elif radical > 0:
         if radical in persq:
             print(radical ** (1/2))
-            break
-        if radical % num <= 0:
+        elif radical % num <= 0:
             print(str(num ** (1/2))+"√"+str(radical/num))
-            break
