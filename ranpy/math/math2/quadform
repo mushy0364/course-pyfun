@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import colors as s
+import skilstak.colors as s
 
 print(s.green+"This is a calculator to solve a quadratic equation in standard form using the quadratic formula")
 print("")
