@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import skilstak.colors as s
+from mymath import simpleradi
 
 print(s.green+"This is a calculator to solve a quadratic equation in standard form using the quadratic formula")
 print("")

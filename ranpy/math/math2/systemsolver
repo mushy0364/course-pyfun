@@ -6,3 +6,9 @@ c = float(input("Please insert your 'c' value of the first system > "))
 a1 = float(input("Please insert your 'a' value of the second system > "))
 b1 = float(input("Please insert your 'b' value of the second system > "))
 c1 = float(input("Please insert your 'c' value of the second system > "))
+
+newa = a - a1
+newb = b - b1
+newc = c - c1
+
+
