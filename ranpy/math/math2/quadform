@@ -72,7 +72,7 @@ def quadform():
     print("        ",over2a)
     
     
-def simplified_answer():
+def simplified_answer(simplified):
         print("Two real solutions = x = ", end = '')
         print("x =",str(newb)+" ±"+simplified)
         print("    -------------")
