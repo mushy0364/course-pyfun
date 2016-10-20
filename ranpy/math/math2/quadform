@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import skilstak.colors as s
-from mymath import simpleradi
+from mathy import simpleradi
 
 print(s.green+"This is a calculator to solve a quadratic equation in standard form using the quadratic formula")
 print("")
@@ -10,7 +10,13 @@ a = float(input("What is the 'a' value of the quadratic equation? > "))
 b = float(input("What is the 'b' value of the quadratic equation? > "))
 c = float(input("What is the 'c' value of the quadratic equation? > "))
 
+simplify = input("Would you like to simplify your radical? y/n ").lower()
+
 discrim = (b**2+(-4*a*c))
+
+if simplify == "y":
+    simpleradi
+
 newb = -1*(b)
 over2a = 2*a
 sqrtdiscrim = discrim**(1/2)
@@ -45,14 +51,38 @@ def quadform():
     print("x =",str(newb)+" ±√"+str(discrim))
     print("    -------------")
     print("        ",over2a)
+    
+    
+def simplified_answer():
+        print("Two real solutions = x = ", end = '')
+        print("x =",str(newb)+" ±"+simplified)
+        print("    -------------")
+        print("        ",over2a)
 
-if discrim < 0:
-    print("No real solutions!")
-if discrim == 0:
-    quadform()
-    print("")
-    solve()
-if discrim > 0:
-    quadform()
-    print("")
-    solve()
+if simplify == "y":
+    if discrim < 0:
+        quadform()
+        print("No real solutions!")
+        print("The 2 non real solutions are = ")
+        simplified_answer()
+    if discrim == 0:
+        quadform()
+        print("One real solution = x = ")
+        simplified_answer()
+    if discrim > 0:
+        quadform()
+        print("Two real solutions = x = ")
+        simplified_answer()
+        
+elif simplify == "n":
+    if discrim < 0:
+        print("No real solutions!")
+        print("The non real solutions are = ", end = '')
+    if discrim == 0:
+        quadform()
+        print("")
+        solve()
+    if discrim > 0:
+        quadform()
+        print("")
+        solve()
