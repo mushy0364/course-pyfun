@@ -25,7 +25,7 @@ def simpleradi():
             if radical in persq:
                 simplified = radical ** (1/2)+"i"
             elif radical % num <= 0:
-                simplified = (num ** (1/2)+"i√"+(radical/num)
+                simplified = (num ** (1/2)+"i√"+(radical/num))
         else:
             if radical in persq:
                 simplified = (radical ** (1/2))
