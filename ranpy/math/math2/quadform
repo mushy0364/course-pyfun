@@ -23,15 +23,16 @@ def simpleradi():
     for num in persq[::-1]:
         if negative == True:
             if radical in persq:
-                simplified = radical ** (1/2)+"i"
+                simplified = str(radical ** (1/2)+"i")
             elif radical % num <= 0:
-                simplified = (num ** (1/2)+"i√"+(radical/num))
+                simplified = (str(num ** (1/2))+"i√"+str(radical/num))
         else:
             if radical in persq:
-                simplified = (radical ** (1/2))
+                simplified = str(radical ** (1/2))
             elif radical % num <= 0:
-                simplified = (num ** (1/2)+"√"+(radical/num)
+                simplified = (str(num ** (1/2))+"√"+str(radical/num))
     return simplified
+
 if simplify == "y":
     simpleradi()
 
