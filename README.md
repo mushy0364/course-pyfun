@@ -1,3 +1,3 @@
 # python
 
-testing
+Just fun little activities I do on my own :)
