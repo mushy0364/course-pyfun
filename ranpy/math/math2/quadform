@@ -8,22 +8,23 @@ print("")
 a = float(input("What is the 'a' value of the quadratic equation? > "))
 b = float(input("What is the 'b' value of the quadratic equation? > "))
 c = float(input("What is the 'c' value of the quadratic equation? > "))
-
-simplify = input("Would you like to simplify your radical? y/n ").lower()
+print("")
+simplify = input("Would you like to simplify your radical? y/n > ").lower()
 
 discrim = (b**2+(-4*a*c))
 
-def simpleradi():
-    radical = discrim
-    persq = [4,9,16,25,36,49,64,81,100,121,144,169,196,225,256,289,324,361,400]
+persq = [4,9,16,25,36,49,64,81,100,121,144,169,196,225,256,289,324,361,400]
+
+def simpleradi(radical):
     negative = False
+    global simplified
     if radical < 0:
         radical = radical * -1
         negative = True
     for num in persq[::-1]:
         if negative == True:
             if radical in persq:
-                simplified = str(radical ** (1/2)+"i")
+                simplified = str(radical ** (1/2))+"i"
             elif radical % num <= 0:
                 simplified = (str(num ** (1/2))+"i√"+str(radical/num))
         else:
@@ -31,10 +32,11 @@ def simpleradi():
                 simplified = str(radical ** (1/2))
             elif radical % num <= 0:
                 simplified = (str(num ** (1/2))+"√"+str(radical/num))
-    return simplified
+    else:
+        simplified = str(radical)
 
 if simplify == "y":
-    simpleradi()
+    simpleradi(discrim)
 
 newb = -1*(b)
 over2a = 2*a
@@ -72,31 +74,42 @@ def quadform():
     print("        ",over2a)
     
     
-def simplified_answer(simplified):
-        print("Two real solutions = x = ", end = '')
-        print("x =",str(newb)+" ±"+simplified)
-        print("    -------------")
-        print("        ",over2a)
+def simplified_answer():
+    print(str(newb)+" ±"+simplified)
+    print("    -------------")
+    print("      ",over2a)
 
 if simplify == "y":
+    if discrim in persq:
+        quadform()
+        print("")
+        print("x = ", end='')
+        simplified_answer()
+        solve()
+    else:
+        if discrim < 0:
+            quadform()
+            print("")
+            print("No real solutions!")
+            print("The 2 non real solutions are =")
+            print("x = ", end='')
+            simplified_answer()
+        if discrim == 0:
+            quadform()
+            print("")
+            print("One real solution = ")
+            print("x = ", end='')
+            simplified_answer()
+        if discrim > 0:
+            quadform()
+            print("")
+            print("Two real solutions = ")
+            print("x = ", end='')
+            simplified_answer()
+
+else:
     if discrim < 0:
-        quadform()
         print("No real solutions!")
-        print("The 2 non real solutions are = ")
-        simplified_answer()
-    if discrim == 0:
-        quadform()
-        print("One real solution = x = ")
-        simplified_answer()
-    if discrim > 0:
-        quadform()
-        print("Two real solutions = x = ")
-        simplified_answer()
-        
-elif simplify == "n":
-    if discrim < 0:
-        print("No real solutions!")
-        print("The non real solutions are = ", end = '')
     if discrim == 0:
         quadform()
         print("")
