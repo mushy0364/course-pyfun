@@ -2,6 +2,8 @@
 
 import skilstak.colors as s
 
+'''A simple quadratic calculator that uses the quadratic formula. Can give decimal answers, or answers with simplified radicals'''
+
 print(s.green+"This is a calculator to solve a quadratic equation in standard form using the quadratic formula")
 print("")
 
@@ -25,15 +27,22 @@ def simpleradi(radical):
         if negative == True:
             if radical in persq:
                 simplified = str(radical ** (1/2))+"i"
+                break
             elif radical % num <= 0:
                 simplified = (str(num ** (1/2))+"i√"+str(radical/num))
+                break
         else:
             if radical in persq:
                 simplified = str(radical ** (1/2))
+                break
             elif radical % num <= 0:
                 simplified = (str(num ** (1/2))+"√"+str(radical/num))
+                break
     else:
-        simplified = str(radical)
+        if negative == True:
+            simplified = "i√" + str(radical)
+        else:
+            simplified = "√" + str(radical)
 
 if simplify == "y":
     simpleradi(discrim)

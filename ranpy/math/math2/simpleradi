@@ -15,10 +15,19 @@ for num in persq[::-1]:
     if negative == True:
         if radical in persq:
             print(str(radical ** (1/2))+"i")
+            break
         elif radical % num <= 0:
             print(str(num ** (1/2))+"i√"+str(radical/num))
+            break
     else:
         if radical in persq:
             print(radical ** (1/2))
+            break
         elif radical % num <= 0:
             print(str(num ** (1/2))+"√"+str(radical/num))
+            break
+else:
+    if negative == True:
+        print("i√" + str(radical))
+    else:
+        print("√" + str(radical))
