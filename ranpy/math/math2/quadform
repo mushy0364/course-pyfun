@@ -3,6 +3,7 @@
 import skilstak.colors as s
 
 '''A simple quadratic calculator that uses the quadratic formula. Can give decimal answers, or answers with simplified radicals'''
+'''Note - These colors are optional! Just remove the import line and s.green!'''
 
 print(s.green+"This is a calculator to solve a quadratic equation in standard form using the quadratic formula")
 print("")
