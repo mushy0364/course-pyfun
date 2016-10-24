@@ -6,10 +6,10 @@ import time
 seconds = 0
 minutes = 0
 continued = 0
-print(" This is a stopwatch. Press Ctrl+C to stop the timer.")
+print("This is a stopwatch. Press Ctrl+C to stop the timer.")
 try:
     while continued != 1:
-        print("",minutes, ':', seconds)
+        print(minutes, ':', seconds)
         time.sleep(1)
         if seconds == 59:
             seconds = 0
@@ -17,4 +17,4 @@ try:
         else:
             seconds += 1
 except KeyboardInterrupt:
-    print(c.clear,minutes, ':', seconds)
+    print(c.clear + str(minutes), ':', str(seconds))
