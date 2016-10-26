@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
-import skilstak.colors as s
+import colors as s
 
 '''A simple quadratic calculator that uses the quadratic formula. Can give decimal answers, or answers with simplified radicals'''
-'''Note - These colors are optional! Just remove the import line and s.green!'''
+'''Note - These colors are optional! Just remove the import line and s.green! Colors module found in my lib repos'''
 
 print(s.green+"This is a calculator to solve a quadratic equation in standard form using the quadratic formula")
 print("")
