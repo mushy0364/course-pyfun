@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+
+'''My first module importing test. See lib repo'''
+
+from derp import derp
+
+derp()
