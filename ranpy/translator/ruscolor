@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+
+import colors as c
+import time
+
+'''This is a russian translator that translates colors'''
+
+shade_of_purple = ("violet","purple")
+shade_of_pink = ("magenta","pink")
+
+def pause():
+    print("...")
+    time.sleep(1)
+
+def english_spelling(text):
+    print("English spelling = " + text)
+
+while True:
+    print("This is a russian color translator.")
+    color = input("What is the color you would like to translate? > ").lower().strip()
+    if color == "blue":
+        pause()
+        print(c.blue + "синий")
+        english_spelling("siniy")
+        break
+    if color == "red":
+        pause()
+        print(c.red + "красный")
+        english_spelling("krasnyy")
+        break
+    if color == "yellow":
+        pause()
+        print(c.yellow + "желтый")
+        english_spelling("zheltyy")
+        break
+    if color == "green":
+        pause()
+        print(c.green + "зеленый")
+        english_spelling("zelenyy")
+        break
+    if color == "orange":
+        pause()
+        print(c.orange + "оранжевый")
+        english_spelling("oranzhevyy")
+        break
+    if color == "white":
+        pause()
+        print(c.base3 + "белый")
+        english_spelling("belyy")
+        break
+    if color == "black":
+        pause()
+        print(c.base03 + "черный")
+        english_spelling("chernyy")
+        break 
+    if color in shade_of_pink:
+        pause()
+        print(c.magenta + "розовый")
+        english_spelling("rozovyy")
+        break
+    if color in shade_of_purple:
+        pause()
+        print(c.violet + "Фиолетовый")
+        english_spelling("fioletovyy")
+        break
+    else:
+        pause()
+        print("Please insert another color.")
+        continue
