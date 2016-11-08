@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+
+import colors as c
+
+print("Welcome to the height converter! Please select your option:")
+print("A: Ft/In to Cm")
+print("B: Cm to Ft/In")
+

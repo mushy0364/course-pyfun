@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+
+import colors as c
+
+print(c.clear+c.yellow+"Welcome to the weight converter! Your options are:")
+print("A: Lbs to Kg")
+print("B: Kg to Lbs")
+choice = input("Please select the method of conversion > ").upper().strip()
+
+if choice == "A":
+    pounds = int(input("What is the weight in pounds? > "))
+    kg = pounds * .45359237
+    print("{} pounds is equivalent to {} kilograms.".format(pounds,kg))
+
+if choice == "B":
+    kg = int(input("What is the weight in kilograms? > "))
+    pounds = kg / .45359237
+    print("{} kilograms is equivalent to {} pounds.".format(kg,pounds))
