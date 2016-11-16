@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from urllib.request import urlopen
-from urllib.parse import quote
 import json
 
 text = input("Please insert the text you would like to translate? > ")

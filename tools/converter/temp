@@ -8,11 +8,11 @@ print("B: Fahrenheit to Celsius")
 choice = input("Please select the method of conversion > ").upper().strip()
 
 if choice == "A":
-    celsius = int(input("What is the temperature in Celsuis? > "))
+    celsius = float(input("What is the temperature in Celsuis? > "))
     fahrenheit = celsius * 1.8 + 32
     print("{} degrees Celsius is equivalent to {} degrees Fahrenheit.".format(celsius,fahrenheit))
 
 if choice == "B":
-    fahrenheit = int(input("What is the temperature in Fahrenheit? > "))
+    fahrenheit = float(input("What is the temperature in Fahrenheit? > "))
     celsius = (fahrenheit - 32)/1.8
     print("{} degrees Fahrenheit is equivalent to {} degrees Celsius.".format(fahrenheit,celsius))
