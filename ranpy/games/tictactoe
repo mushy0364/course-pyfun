@@ -64,4 +64,3 @@ while True:
         drawboard(boardno)
         print("It's a tie!")
         exit()
-
