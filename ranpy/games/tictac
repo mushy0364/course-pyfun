@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 
+import colors as c
+
 player1 = 'X'
 player2 = 'O'
 boardno = ['1','2','3','4','5','6','7','8','9']
 player = 1
 
 def drawboard(board):
+    print(c.clear + '\n')
     print('    |   |   ')
     print(' ' +board[6]+ '  | ' +board[7]+ ' | ' +board[8] )
     print('    |   |   ')
@@ -17,27 +20,31 @@ def drawboard(board):
     print('    |   |   ')
     print(' ' +board[0]+ '  | ' +board[1]+ ' | ' +board[2] )
     print('    |   |   ')
+    print('\n')
 
 def check_win(board):
-    row1 = board[0],board[1],board[2]
-    row2 = board[3],board[4],board[5]
-    row3 = board[6],board[7],board[8]
-    vert1 = board[0],board[3],board[6]
-    vert2 = board[1],board[4],board[7]
-    vert3 = board[2],board[5],board[8]
-    diag1 = board[0],board[4],board[8]
-    diag2 = board[2],board[4],board[6]
-    if ['X','X','X'] in row1:
-        print('Hey')
+    row1 = board[0] == board[1] == board[2]
+    row2 = board[3] == board[4] == board[5]
+    row3 = board[6] == board[7] == board[8]
+    vert1 = board[0] == board[3] == board[6]
+    vert2 = board[1] == board[4] == board[7]
+    vert3 = board[2] == board[5] == board[8]
+    diag1 = board[0] == board[4] == board[8]
+    diag2 = board[2] == board[4] == board[6]
+    if row1 or row2 or row3 or vert1 or vert2 or vert3 or diag1 or diag2:
+        return True
+    else:
+        return False
 
 while True:
     drawboard(boardno)
-    choice = str(input("Player " + str(player) + ", please select the cell of choice > "))
+    choice = str(input("Player " + str(player) + ", select the cell of choice > "))
     if player == 1:
         for n,i in enumerate(boardno):
             if i == choice:
                 boardno[n] = player1
                 if check_win(boardno) == True:
+                    drawboard(boardno)
                     print("Player 1 Wins!")
                     exit()
                 player = 2
@@ -46,6 +53,7 @@ while True:
             if i == choice:
                 boardno[n] = player2
                 if check_win(boardno) == True:
+                    drawboard(boardno)
                     print("Player 2 Wins!")
                     exit()
                 player = 1
