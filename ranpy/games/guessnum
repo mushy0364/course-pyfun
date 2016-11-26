@@ -7,7 +7,7 @@ x = int(input("Guess a number, 0-100! > "))
 while x != number:
     if x > number:
         print("Guess lower!")
-        x =int( input("Guess another number! > "))
+        x = int( input("Guess another number! > "))
         continue
     if x < number:
         print("Guess higher!")
