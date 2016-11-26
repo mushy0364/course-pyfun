@@ -27,8 +27,8 @@ def check_win(board):
     vert3 = board[2],board[5],board[8]
     diag1 = board[0],board[4],board[8]
     diag2 = board[2],board[4],board[6]
-    if row1 == []:
-        print("Hiya")
+    if ['X','X','X'] in row1:
+        print('Hey')
 
 while True:
     drawboard(boardno)
