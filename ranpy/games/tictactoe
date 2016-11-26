@@ -1,82 +1,59 @@
 #!/usr/bin/env python3
 
-def draw_board(width,height):
-    print('__'.join([' '] * (width + 1)))
-    for i in range(height):
-        print('__'.join(['|'] * (width + 1)))
+import colors as c
+
+player1 = 'X'
+player2 = 'O'
+boardno = ['1','2','3','4','5','6','7','8','9']
+player = 1
+
+def drawboard(board):
+    print(c.clear + '\n')
+    print('    |   |   ')
+    print(' ' +board[6]+ '  | ' +board[7]+ ' | ' +board[8] )
+    print('    |   |   ')
+    print('-------------')
+    print('    |   |   ')
+    print(' ' +board[3]+ '  | ' +board[4]+ ' | ' +board[5] )
+    print('    |   |   ')
+    print('--------------')
+    print('    |   |   ')
+    print(' ' +board[0]+ '  | ' +board[1]+ ' | ' +board[2] )
+    print('    |   |   ')
     print('\n')
 
-def winner(player):
-    if player == 0:
-        print("Tie!")
+def check_win(board):
+    row1 = board[0] == board[1] == board[2]
+    row2 = board[3] == board[4] == board[5]
+    row3 = board[6] == board[7] == board[8]
+    vert1 = board[0] == board[3] == board[6]
+    vert2 = board[1] == board[4] == board[7]
+    vert3 = board[2] == board[5] == board[8]
+    diag1 = board[0] == board[4] == board[8]
+    diag2 = board[2] == board[4] == board[6]
+    if row1 or row2 or row3 or vert1 or vert2 or vert3 or diag1 or diag2:
+        return True
     else:
-        print("Player " + str(player) + " wins!")
+        return False
 
-def check_row_win(row):
-    if row[0] == row[1] and row[1] == row[2]:
-        return row[0]
-    else:
-        return 0
-
-def get_col(game,colno):
-    return [game[x][colno] for x in range(3)]
-
-def get_row(game,rowno):
-    return [game[rowno]]
-
-def check_win(game):
-    slices = []
-    for i in range(3):
-        slices.append(get_row(game,i))
-        slices.append(get_col(game,i))
-
-    down_diagnol = [game[x][x] for x in range(3)]
-    up_diagnol = [game[0][2],game[1][1],game[2][0]]
-    slices.append(down_diagnol)
-    slices.append(up_diagnol)
-
-    for one_slice in slices:
-        winner = check_row_win(one_slice)
-        if winner != 0:
-            winner = winner(winner)
-            return winner
-
-def display(game):
-    d = {2: "O", 1: "X", 0: " "}
-    game_string = []
-    for rowno in range(3):
-        new_row = []
-        for colno in range(3):
-            new_row.append(d[game[rowno][colno]])
-        game_string.append(new_row)
-    for game_string in game_string:
-      print(game_string)
-    
-def add_piece(game,player,row,col):
-    game[row][col] = player
-    return game
-
-def coordinate(usr_input):
-    return usr_input - 1
-
-def player_switch(player):
+while True:
+    drawboard(boardno)
+    choice = str(input("Player " + str(player) + ", select the cell of choice > "))
     if player == 1:
-        return 2
+        for n,i in enumerate(boardno):
+            if i == choice:
+                boardno[n] = player1
+                if check_win(boardno) == True:
+                    drawboard(boardno)
+                    print("Player 1 Wins!")
+                    exit()
+                player = 2
     if player == 2:
-        return 1
-
-if __name__ == '__main__':
-    game = [[0,0,0] for x in range(3)]
-    display(game)
-    player = 1
-    winner = 0
-
-    while True:
-        print("Current player is: " + str(player))
-        row = coordinate(int(input("Which row?(1,2,3) > ")))
-        col = coordinate(int(input("Which column?(1,2,3) > ")))
-        game = add_piece(game,player,row,col)
-        display(game)
-        check_win(game)
-        player = player_switch(player)
- 
+        for n,i in enumerate(boardno):
+            if i == choice:
+                boardno[n] = player2
+                if check_win(boardno) == True:
+                    drawboard(boardno)
+                    print("Player 2 Wins!")
+                    exit()
+                player = 1
