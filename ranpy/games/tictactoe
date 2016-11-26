@@ -39,7 +39,7 @@ def check_win(board):
 
 while True:
     drawboard(boardno)
-    choice = str(input("Player " + str(player) + ", select the cell of choice > "))
+    choice = str(input("Player " + str(player) + ", select your cell of choice > "))
     if player == 1:
         for n,i in enumerate(boardno):
             if i == choice:
@@ -64,3 +64,4 @@ while True:
         drawboard(boardno)
         print("It's a tie!")
         exit()
+
