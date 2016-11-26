@@ -11,6 +11,7 @@ def roll_dice(nums):
     print('-----------')
 
 nums = ['1','2','3','4','5','6']
+
 while True:
     roll_dice(nums)
     again = input('Would you like to roll the dice again? y/n > ').lower()
