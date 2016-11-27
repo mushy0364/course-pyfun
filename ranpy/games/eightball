@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
+import colors as c
 import random
+import time
 
 def draw_ball():
     print('''          _.-----._
@@ -19,29 +21,33 @@ def draw_ball():
            `-----''')
 
 def select_fortune():
-    fortunes = ['affirmative','non_commital','negative']
-    affirmative = ['It is certain','It is decidedly so','Without a doubt','Yes, definitely','You may rely on it','As I see it, yes','Most likely','Outlook good','Yes','Signs point to yes','Ch\'yas']
-    non_commital = ['Reply hazy, try again later','Ask again later','Better not tell you now','Cannot predict now','Concentrate harder on your question, and ask agian later']
-    negative = ['Don\'t count on it','My reply says no','My sources say no','Outlook no so good','Very doubtful']
-    selected_type = random.randint(0,2)
-    fortune_type = fortunes[selected_type]
-    fortune = random.choice(fortune_type)
+    fortunes = ('It is certain','It is decidedly so','Without a doubt','Yes, definitely','You may rely on it','As I see it, yes','Most likely','Outlook good','Yes','Signs point to yes','Ch\'yas','Reply hazy, try again later','Ask again later','Better not tell you now','Cannot predict now','Concentrate harder on your question, and ask agian later','Don\'t count on it','My reply says no','My sources say no','Outlook no so good','Very doubtful')
+    fortune_no = random.randint(0,20)
+    fortune = fortunes[fortune_no]
+    print(fortune)
 
 while True:
     try:
         while True:
+            print(c.clear + 'Welcome to the all mighty and omniscient "Magic 8 Ball!"')
             draw_ball()
             choice = input('Would you like your fortune? y/n > ').lower()
             if choice == 'n':
                 print('Suit yourself, no refunds!')
                 exit()
             else:
-                ask = input('What is your question? > ')
+                ask = input('What is your question? > ').lower()
+                if ask.find('life'):
+                    print('It\'s 42, everyone knows that!')
+                    print('Resetting...')
+                    time.sleep(3)
+                    continue
                 select_fortune()
-                print(fortune)
+                print('Resetting...')
+                time.sleep(3)
                 continue
     except KeyboardInterrupt:
-        print('\n')
+        print('')
         print('Suit yourself, no refunds!')
         exit()
 
