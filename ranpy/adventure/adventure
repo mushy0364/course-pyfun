@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+
+inventory = []
+
+def mansion(inventory):
+    print('You walk up to the mansion, and the door is locked. You knock and the door opens suddenly. You walk inside.')
+    door = input('There are two doors, a red one, and a blue one. Which door do you choose? red/blue > ').lower()
+    if door == 'red':
+        print('The door is locked, and you go through the blue door.')
+    print('You walk through the blue door, and you see an old car standing there. You think to yourself, and decide to grab the battery.')
+    inventory.append('battery')
+    print('You walk back to the door, but find yourself locked inside. You find a button, and press it, which opens the garage door, leading outside.')
+
+def outside(inventory):
+    print('You walk around the house, doing your best trying not to be noticed. You find a bloody axe laying on the ground.')
+    axe = input('Do you pick up the axe, or keep looking for other tools? axe/look > ').lower()
+    if axe == 'axe':
+        print('You obtained the axe! Now, you walk around cautiously, with your axe in the air.')
+        inventory.append('axe')
+    print('You continue to walk around, and hear rustling in the bushes.')
+    investigate = input('Do you investigate, or do you keep walking? investigate/walk > ').lower()
+    if investigate == 'investigate':
+        print('You walked towards the bush, and suddenly the rustling stops. You look up and find a fallen tree.')
+    else:
+        print('You look around and you find a fallen tree behind the bush.')
+    cut = input('Do you chop down the tree, or do you look for sticks? chop/stick > ').lower()
+    if cut == 'chop':
+        if 'axe' not in inventory:
+            print('You have nothing to chop the tree down with! You look around and find a suitable stick to act as an axle.')
+            inventory.append('axle')
+        else:
+            print('You chop down the tree into a suitable shape to act as an axle.')
+            inventory.append('axle')
+    else:
+        print('You look around and find a suitable stick to act as an axle.')
+    print('You walk back to the front of the mansion.') 
+
+
+print('Your car just broke down and a mansion appears in front of you. You must go find the following materials: an axe and a battery.')                                    
+choice = input('Do you go inside the mansion, or do you walk around it? mansion/walk > ').lower()                                                                           
+if choice == 'mansion':                                                                                                                                                     
+    mansion(inventory)                                                                                                                                                      
+    outside(inventory)                                                                                                                                                      
+    print('You walk back to your car and repair it. You survived!')                                                                                                         
+    exit()                                                                                                                                                                  
+if choice == 'walk':                                                                                                                                                     
+    outside(inventory)                                                                                                                                                      
+    mansion(inventory)                                                                                                                                                      
+    print('You walk back to your car and repair it. You survived!') 
