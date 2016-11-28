@@ -37,11 +37,6 @@ while True:
                 exit()
             else:
                 ask = input('What is your question? > ').lower()
-                if ask.find('life'):
-                    print('It\'s 42, everyone knows that!')
-                    print('Resetting...')
-                    time.sleep(3)
-                    continue
                 select_fortune()
                 print('Resetting...')
                 time.sleep(3)
