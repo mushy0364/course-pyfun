@@ -43,7 +43,7 @@ if choice == 'mansion':
     outside(inventory)                                                                                                                                                      
     print('You walk back to your car and repair it. You survived!')                                                                                                         
     exit()                                                                                                                                                                  
-if choice == 'walk':                                                                                                                                                     
+else:                                                                                                                                                     
     outside(inventory)                                                                                                                                                      
     mansion(inventory)                                                                                                                                                      
     print('You walk back to your car and repair it. You survived!') 
