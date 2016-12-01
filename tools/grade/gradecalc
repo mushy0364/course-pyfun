@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+
+import colors as c
+
+informals = 'insert, seperated by commas'
+formals = 'insert, seperated by commas'
+
+print('F = formal, I = informal, C = change, N = new')
+print("Please insert your grade like this - Ex. 'i n 100' or 'f c 70 80'")
+grade = input('>').lower()
+
+informalslist = informals.split(',')
+formalslist = formals.split(',')
+grades = []
+
+def find_grade(informals,formals):
+    iaverage = sum(informals)/len(informals)
+    faverage = sum(formals)/len(formals)
+    current_grade = (iaverage * .35) + (faverage * .65)    
+
+
+find_grade(informalslist,formalslist)
+
+for grade in grades:
+    try:
+        grades.append(float(grade))
+    except ValueError:
+        pass
+
+if 'f' in grade:
+
+if 'i' in grade:
+
+if 'c' in grade:
+    old = grades[0]
+    new = grades[1]
+
+    
