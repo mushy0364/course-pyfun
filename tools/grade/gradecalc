@@ -1,21 +1,22 @@
 #!/usr/bin/env python3
 
-import colors as c
+import time
 
-informals = 'insert, seperated by commas'
-formals = 'insert, seperated by commas'
+'''Change values of informals and formals'''
+informals = '100,100,100,90'
+formals = '100,93'
 ilist = [float(i) for i in informals.split(',')]
 flist = [float(i) for i in formals.split(',')]
 input_grades = []
 
 
-def curr_grade(informals,formals):
+def currgrade(informals,formals):
     iaverage = sum(informals)/len(informals)
     faverage = sum(formals)/len(formals)
     current_grade = (iaverage * .35) + (faverage * .65)
     return current_grade
 
-def new_grade(grade):
+def newgrade(grade):
     if 'n' in grade:
         if 'f' in grade:
             for grade in grades:
@@ -25,15 +26,15 @@ def new_grade(grade):
                 ilist.append(grade)
     if 'c' in grade:
         if 'f' in grade:
-            flist.remove(grades[0])
-            flist.append(grades[1])
+            flist.remove(input_grades[0])
+            flist.append(input_grades[1])
         if 'i' in grade:
-            ilist.remove(grade[0])
-            ilist.append(grade[1])
+            ilist.remove(input_grades[0])
+            ilist.append(input_grades[1])
     
     new_iaverage = sum(ilist)/len(ilist)
     new_faverage = sum(flist)/len(flist)
-    new_grade = (new_iaverage * 35) + (new_faverage * 65)
+    new_grade = (new_iaverage * .35) + (new_faverage * .65)
     return new_grade
 
 def run():
@@ -42,22 +43,28 @@ def run():
             print('F = formal, I = informal, C = change, N = new. Type \'help\' if you are experiencing trouble.')
             print("Please insert your grade like this - Ex. 'i n 100' or 'f c 70 80'")
 
-            request = input('>').lower()
+            request = input('\n> ').lower()
 
             if request == 'help':
-                print('If no values are being inserted, or you are being returned errors, edit the list of informals and formals in an editor.')
-                print('If you do not understand how to input a value, type in f or i for type of grade, n or c for new or changing it, and insert your %.')
+                print('\nIf no values are being inserted, or you are being returned errors, edit the list of informals and formals in an editor.')
+                print('If you do not understand how to input a value, type in f or i for type of grade, n or c for new or changing it, and then insert your grade..\n')
+                time.sleep(1)
                 continue
     
             else:
-                curr_grade(informalslist,formalslist)
+                current_grade = currgrade(ilist,flist)
                 for grade in request.split():
                     try:
                         input_grades.append(float(grade))
                     except ValueError:
                         pass
-                new_grade(request)
-                print(current_grade)
-                print(new_grade)
+                new_grade = newgrade(request)
+                time.sleep(1)
+                print('\nCurrent Grade = ' + str(current_grade))
+                print('New Grade = '+ str(new_grade))
+                break
     except KeyboardInterrupt:
         exit()
+
+if __name__ == '__main__':
+    run()
