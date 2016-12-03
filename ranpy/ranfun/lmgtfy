@@ -5,7 +5,7 @@ choice = input('> ')
 
 query_string = choice.replace(' ','+')
 
-url = 'lmgtfy.com/?q=' + query_string
+url = 'https://www.lmgtfy.com/?q=' + query_string
 
 print('Please copy and paste the following link into the url:')
 print(url)
