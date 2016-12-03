@@ -19,11 +19,11 @@ def currgrade(informals,formals):
 def newgrade(grade):
     if 'n' in grade:
         if 'f' in grade:
-            for grade in grades:
-                flist.append(grade)
+            for grades in input_grades:
+                flist.append(grades)
         if 'i' in grade:
-            for grade in grades:
-                ilist.append(grade)
+            for grades in input_grades:
+                ilist.append(grades)
     if 'c' in grade:
         if 'f' in grade:
             flist.remove(input_grades[0])
