@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+
+print('What do you want to google?')
+choice = input('> ')
+
+query_string = choice.replace(' ','+')
+
+url = 'lmgtfy.com/?q=' + query_string
+
+print('Please copy and paste the following link into the url:')
+print(url)
