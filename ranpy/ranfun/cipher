@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+
+import colors as c
+import time
+import sys
+
+def print_slow(str):
+    for letter in str:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(0.1)
+
+print(c.clear + "Ready to Cipher?")
+message = input("What message would you like to encode? > ")
+
+key = {
+  "a": "%$dv",
+  "b": "#fe",
+  "c": "0knb",
+  "d": "mk1d",
+  "e": "@r*s",
+  "f": "n/u^n",
+  "g": "&=ax",
+  "h": "gb~",
+  "i": ">amv2",
+  "j": ")njg",
+  "k": "pm|`as",
+  "l": ",3ad",
+  "m": "l0p}",
+  "n": "[/pob",
+  "o": ".akf",
+  "p": "ga%",
+  "q": "l=x/",
+  "r": "@ad$",
+  "s": "d!5",
+  "t": "v;la",
+  "u": "kas:v",
+  "v": "*(ayc",
+  "w": "?hda",
+  "x": "pq<",
+  "y": "i3@r",
+  "z": "#lax",
+  " ": "_",
+  ",": ",",
+  ".": ".",
+  }
+
+key_inverse = {
+  "%$dv": "a",
+  "#fe": "b",
+  "0knb": "c",
+  "mk1d": "d",
+  "@r*s": "e",
+  "n/u^n": "f",
+  "&=ax": "g",
+  "gb~": "h",
+  ">amv2": "i",
+  ")njg": "j",
+  "pm|`as": "k",
+  ",3ad": "l",
+  "l0p}": "m",
+  "[/pob": "n",
+  ".akf": "o",
+  "ga%": "p",
+  "l=x/": "q",
+  "@ad$": "r",
+  "d!5": "s",
+  "v;la": "t",
+  "kas:v": "u",
+  "*(ayc": "v",
+  "?hda": "w",
+  "pq<": "x",
+  "i3@r": "y",
+  "#lax": "z",
+  "_": " ",
+  ",": ",",
+  ".": "."
+  }
+
+enc_list = []
+
+for char in message:
+    enc = key[char]
+    enc_list.append(enc)
+    print(enc, end='-')
+print("\n...")
+time.sleep(.5)
+
+for char in enc_list:
+    dec = key_inverse[char]
+    print_slow(dec)
+print()
