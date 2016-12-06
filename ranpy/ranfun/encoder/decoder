@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+
+import simplejson
+import colors as c
+import time
+import sys
+
+def print_slow(str):
+    for letter in str:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(0.1)
+
+print(c.clear + "Ready to Cipher?")
+message = input("What message would you like to encode? > ")
+
+key_inverse = {
+  "%$dv": "a",
+  "#fe": "b",
+  "0knb": "c",
+  "mk1d": "d",
+  "@r*s": "e",
+  "n/u^n": "f",
+  "&=ax": "g",
+  "gb~": "h",
+  ">amv2": "i",
+  ")njg": "j",
+  "pm|`as": "k",
+  ",3ad": "l",
+  "l0p}": "m",
+  "[/pob": "n",
+  ".akf": "o",
+  "ga%": "p",
+  "l=x/": "q",
+  "@ad$": "r",
+  "d!5": "s",
+  "v;la": "t",
+  "kas:v": "u",
+  "*(ayc": "v",
+  "?hda": "w",
+  "pq<": "x",
+  "i3@r": "y",
+  "#lax": "z",
+  "_": " ",
+  ",": ",",
+  ".": "."
+  }
+
+with open("cipher.txt","r") as f:
+    enc_list = f.read(f)
+
+for char in enc_list:
+    dec = key_inverse[char]
+    print_slow(dec)
+print()

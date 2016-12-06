@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import colors as c
+import simplejson
 
 print(c.clear + "Ready to Cipher?")
 message = input("What message would you like to encode? > ")
@@ -42,9 +43,7 @@ enc_list= []
 for char in message:
     enc = key[char]
     enc_list.append(enc)
+    with open("cipher.txt","w") as f:
+        simplejson.dump(enc_list,f)
     print(enc, end="")
 print()
-
-for enc in enc_list:
-    with open('cipher.txt','w') as f:
-        f.write(enc_list[enc])
