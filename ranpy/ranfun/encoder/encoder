@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+
+import colors as c
+
+print(c.clear + "Ready to Cipher?")
+message = input("What message would you like to encode? > ")
+
+key = {
+  "a": "%$dv",
+  "b": "#fe",
+  "c": "0knb",
+  "d": "mk1d",
+  "e": "@r*s",
+  "f": "n/u^n",
+  "g": "&=ax",
+  "h": "gb~",
+  "i": ">amv2",
+  "j": ")njg",
+  "k": "pm|`as",
+  "l": ",3ad",
+  "m": "l0p}",
+  "n": "[/pob",
+  "o": ".akf",
+  "p": "ga%",
+  "q": "l=x/",
+  "r": "@ad$",
+  "s": "d!5",
+  "t": "v;la",
+  "u": "kas:v",
+  "v": "*(ayc",
+  "w": "?hda",
+  "x": "pq<",
+  "y": "i3@r",
+  "z": "#lax",
+  " ": "_",
+  ",": ",",
+  ".": ".",
+  }
+
+enc_list= []
+
+for char in message:
+    enc = key[char]
+    enc_list.append(enc)
+    print(enc, end="")
+print()
+
+for enc in enc_list:
+    with open('cipher.txt','w') as f:
+        f.write(enc_list[enc])
