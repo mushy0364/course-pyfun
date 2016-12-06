@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import random
+
+questions = []
+
+def draw_board(questions):
+    board = questions[1] + '|' + questions[2] + '|' + questions[3] + '|' + questions[4]
+    print(board)
+
+while range(questions) < 8:
+    topic = ['one','two']
+    one = ['what is 2+2','what is 9+9','what is 3+3','what is 10+10']
+    two = ['why did jimmy cry','who did that','why am i unhappy','deeeerrrrrp']
+    choice = random.choice(topic)
+    if choice == 'one':
+        question = random.choice(one)
+        questions.append(question)
+        continue
+    elif choice == 'two':
+        question = random.choice(two)
+        questions.append(question)
+        continue
+
+draw_board(questions)
