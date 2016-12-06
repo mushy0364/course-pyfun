@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import simplejson
 import colors as c
 import time
 import sys
@@ -46,10 +45,14 @@ key_inverse = {
   ".": "."
   }
 
-with open("cipher.txt","r") as f:
-    enc_list = f.read(f)
+enc_list = []
 
-for char in enc_list:
-    dec = key_inverse[char]
+for char in message.split('-'):
+    enc_list.append(char)
+
+enc_list.pop()
+
+for enc in enc_list:
+    dec = key_inverse[enc]
     print_slow(dec)
 print()
