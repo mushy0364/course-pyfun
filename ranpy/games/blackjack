@@ -7,17 +7,25 @@ print("Hello and welcome to the casino where we play blackjack!")
 rules = input("Would you like to read the rules? y/n > ").lower()
 score = 21
 
-if rules == "y":
+def rules():
     print("The goal of blackjack is to score 21 by adding up all of your cards.")
     print("You can draw for more points.")
-    print("All face cards are worth 10 points. Aces are 1 point.")
-if rules == "n":
+    print("All face cards are worth 10 points. Aces are ONLY 1 point.")
+
+def play():
     cards = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
-    hand1 = random.choice(cards)
-    hand2 = random.choice(cards)
+    'Jack','Queen','King' = 10
+    'Ace' = 1
+    card1 = random.choice(cards)
+    card2 = random.choice(cards)
+
+if rules == "y":
+    rules()
+
+else:
     print("Your hand is " + hand1 +"," + hand2 +".")
     draw = input("Would you like to draw again? y/n > ").lower()
-    while score < 21:
+    while score <= 21:
         if draw == "y":
             hand = random.choice(cards)
             print("Your new hand is " + hand1 +","+ hand2 +","+hand+".")
