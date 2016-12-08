@@ -30,12 +30,12 @@ def play(cards):
     hand.append(get_card_value(card2))
     print('Your hand is {} for a value of '.format(str(hand).strip('[]')) + str(sum(hand)))
     while score <= 21:
-        draw = input('\nWould you like another card? y/n > ').lower()
+        draw = input('Would you like another card? y/n > ').lower()
         if draw == 'y':
             new_card = random.choice(cards)
             hand.append(get_card_value(new_card))
             score = sum(hand)
-            print('Your hand is {} for a value of '.format(str(hand).strip('[]')) + str(score))
+            print('\nYour hand is {} for a value of '.format(str(hand).strip('[]')) + str(score))
             continue
         else:
             break
