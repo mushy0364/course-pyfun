@@ -63,14 +63,14 @@ if __name__ == '__main__':
         play(cards)
         if comp_score <= 21 and comp_score > score:
             print('\nThe computer won! His score was {}!'.format(comp_score))
-        if score <= 21 and score > comp_score:
+        elif score <= 21 and score > comp_score:
             print('\nYou won! The computer\'s score was {} compared to your {}!'.format(comp_score,score))
-        if score > 21:
+        elif score > 21:
             if comp_score > 21:
                 print('\nIt\'s a tie! You both busted!')
             else:
                 print('\nYou busted! The computer won! His score was {}!'.format(comp_score))
-        if comp_score == score:
+        elif comp_score == score:
             print('\nYou both tied! The computer\'s score was {} too!'.format(comp_score))
     except KeyboardInterrupt:
         print("\nThanks for playing!")
