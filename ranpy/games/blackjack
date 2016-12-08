@@ -66,6 +66,7 @@ def computer_play(cards):
         print(str(comp_hand))
         print(comp_score)
 
+
 if __name__ == '__main__':
     try:
         print(c.clear + "Hello and welcome to the casino where we play blackjack!")
@@ -74,13 +75,7 @@ if __name__ == '__main__':
             print_rules()
         computer_play(cards)
         play(cards)
-        elif comp_score == score:
-            print('\nYou both tied! The computer\'s score was {} too!'.format(comp_score))
-        elif comp_score <= 21 and comp_score > score:
-            print('\nThe computer won! His score was {}!'.format(comp_score))
-        elif score <= 21 and score > comp_score:
-            print('\nYou won! The computer\'s score was {} compared to your {}!'.format(comp_score,score))
-        elif score > 21:
+        if score > 21:
             if comp_score > 21:
                 print('\nIt\'s a tie! You both busted!')
             else:
@@ -90,6 +85,12 @@ if __name__ == '__main__':
                 print('\nIt\'s a tie! You both busted!')
             else:
                 print('\nThe computer busted! You won!')
+        elif comp_score == score:
+            print('\nYou both tied! The computer\'s score was {} too!'.format(comp_score))
+        elif comp_score <= 21 and comp_score > score:
+            print('\nThe computer won! His score was {}!'.format(comp_score))
+        elif score <= 21 and score > comp_score:
+            print('\nYou won! The computer\'s score was {} compared to your {}!'.format(comp_score,score))
     except KeyboardInterrupt:
         print("\nThanks for playing!")
         exit()
