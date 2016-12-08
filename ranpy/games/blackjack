@@ -29,21 +29,27 @@ def play(cards):
     hand.append(get_card_value(card1))
     hand.append(get_card_value(card2))
     print('Your hand is {} for a value of '.format(str(hand).strip('[]')) + str(sum(hand)))
-    while score <= 21:
-        draw = input('Would you like another card? y/n > ').lower()
-        if draw == 'y':
-            new_card = random.choice(cards)
-            hand.append(get_card_value(new_card))
+    while True:
+        while score <= 21:
+            draw = input('Would you like another card? y/n > ').lower()
+            if draw == 'y':
+                new_card = random.choice(cards)
+                hand.append(get_card_value(new_card))
+                score = sum(hand)
+                print('\nYour hand is {} for a value of '.format(str(hand).strip('[]')) + str(score))
+                continue
+            else:
+                break
+        if score > 21 and 11 in hand:
+            for n,i in enumerate(hand):
+                if i == 11:
+                    hand[n] = 1
             score = sum(hand)
+            print('Your ace has been turned into a 1')
             print('\nYour hand is {} for a value of '.format(str(hand).strip('[]')) + str(score))
             continue
         else:
             break
-    if score > 21 and 11 in hand:
-        for n,i in enumerate(hand):
-            if i == 11:
-                hand[n] = 1
-        score = sum(hand)
 
 def computer_play(cards):
     global comp_score
@@ -54,9 +60,11 @@ def computer_play(cards):
     comp_hand.append(get_card_value(comp_card1))
     comp_hand.append(get_card_value(comp_card2))
     while comp_score < 17:
-        comp_score = sum(comp_hand)
         new_card = random.choice(cards)
         comp_hand.append(get_card_value(new_card))
+        comp_score = sum(comp_hand)
+        print(str(comp_hand))
+        print(comp_score)
 
 if __name__ == '__main__':
     try:
@@ -66,7 +74,9 @@ if __name__ == '__main__':
             print_rules()
         computer_play(cards)
         play(cards)
-        if comp_score <= 21 and comp_score > score:
+        elif comp_score == score:
+            print('\nYou both tied! The computer\'s score was {} too!'.format(comp_score))
+        elif comp_score <= 21 and comp_score > score:
             print('\nThe computer won! His score was {}!'.format(comp_score))
         elif score <= 21 and score > comp_score:
             print('\nYou won! The computer\'s score was {} compared to your {}!'.format(comp_score,score))
@@ -80,9 +90,6 @@ if __name__ == '__main__':
                 print('\nIt\'s a tie! You both busted!')
             else:
                 print('\nThe computer busted! You won!')
-
-        elif comp_score == score:
-            print('\nYou both tied! The computer\'s score was {} too!'.format(comp_score))
     except KeyboardInterrupt:
         print("\nThanks for playing!")
         exit()
