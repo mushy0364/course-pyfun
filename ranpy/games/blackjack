@@ -59,13 +59,21 @@ def computer_play(cards):
     comp_card2 = random.choice(cards)
     comp_hand.append(get_card_value(comp_card1))
     comp_hand.append(get_card_value(comp_card2))
-    while comp_score < 17:
-        new_card = random.choice(cards)
-        comp_hand.append(get_card_value(new_card))
-        comp_score = sum(comp_hand)
-        print(str(comp_hand))
-        print(comp_score)
-
+    while True:
+        while comp_score < 17:
+            new_card = random.choice(cards)
+            comp_hand.append(get_card_value(new_card))
+            comp_score = sum(comp_hand)
+            print(str(comp_hand))
+            print(comp_score)
+        if comp_score > 21 and 11 in comp_hand:
+            for n,i in enumerate(comp_hand):
+                if i == 11:
+                    hand[n] = 1
+            comp_score = sum(comp_hand)
+            continue
+        else:
+            break
 
 if __name__ == '__main__':
     try:
