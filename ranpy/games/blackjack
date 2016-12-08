@@ -4,9 +4,7 @@ import colors as c
 import random
 import time
 
-print("Hello and welcome to the casino where we play blackjack!")
-rules = input("Would you like to read the rules? y/n > ").lower()
-score = 0
+cards = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
 
 def print_rules():
     print("\nThe goal of blackjack is to score 21 by adding up all of your cards.")
@@ -22,21 +20,58 @@ def get_card_value(card):
     elif card == 'Jack' or 'Queen' or 'King':
         return 10
 
-def play():
+def play(cards):
+    global score
+    score = 0
     hand = []
-    cards = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
     card1 = random.choice(cards)
     card2 = random.choice(cards)
     hand.append(get_card_value(card1))
     hand.append(get_card_value(card2))
-    print('Your hand is {} for a value of '.format(str(card) for card in hand) + sum(hand))
+    print('Your hand is {} for a value of '.format(str(hand).strip('[]')) + str(sum(hand)))
     while score <= 21:
         score = sum(hand)
         draw = input('Would you like another card? y/n > ').lower()
         if draw == 'y':
-            new_card = random.choice(card)
+            new_card = random.choice(cards)
             hand.append(get_card_value(new_card))
+            print('Your hand is {} for a value of '.format(str(hand).strip('[]')) + str(score))
+            continue
+        else:
+            break
 
-if rules == "y":
-    print_rules()
-play()
+def computer_play(cards):
+    global comp_score
+    comp_score = 0
+    comp_hand = []
+    comp_card1 = random.choice(cards)
+    comp_card2 = random.choice(cards)
+    comp_hand.append(get_card_value(comp_card1))
+    comp_hand.append(get_card_value(comp_card2))
+    while comp_score < 17:
+        comp_score = sum(comp_hand)
+        new_card = random.choice(cards)
+        comp_hand.append(get_card_value(new_card))
+
+if __name__ == '__main__':
+    try:
+        print("Hello and welcome to the casino where we play blackjack!")
+        rules = input("Would you like to read the rules? y/n > ").lower()
+        if rules == "y":
+            print_rules()
+        computer_play(cards)
+        play(cards)
+        if comp_score <= 21 and comp_score > score:
+            print('The computer won! His score was {}!'.format(comp_score))
+        if score <= 21 and score > comp_score:
+            print('You won! The computer\'s score was {} compared to your {}!'.format(comp_score,score))
+        if score > 21:
+            if comp_score > 21:
+                print('It\'s a tie! You both busted!')
+            else:
+                print('You busted! The computer won! His score was {}!'.format(comp_score))
+        if comp_score == score:
+            print('You both tied! The computer\'s score was {} too!'.format(comp_score))
+    except KeyboardInterrupt:
+        print("\nThanks for playing!")
+        exit()
