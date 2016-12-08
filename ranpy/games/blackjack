@@ -30,11 +30,11 @@ def play(cards):
     hand.append(get_card_value(card2))
     print('Your hand is {} for a value of '.format(str(hand).strip('[]')) + str(sum(hand)))
     while score <= 21:
-        score = sum(hand)
-        draw = input('Would you like another card? y/n > ').lower()
+        draw = input('\nWould you like another card? y/n > ').lower()
         if draw == 'y':
             new_card = random.choice(cards)
             hand.append(get_card_value(new_card))
+            score = sum(hand)
             print('Your hand is {} for a value of '.format(str(hand).strip('[]')) + str(score))
             continue
         else:
@@ -62,16 +62,16 @@ if __name__ == '__main__':
         computer_play(cards)
         play(cards)
         if comp_score <= 21 and comp_score > score:
-            print('The computer won! His score was {}!'.format(comp_score))
+            print('\nThe computer won! His score was {}!'.format(comp_score))
         if score <= 21 and score > comp_score:
-            print('You won! The computer\'s score was {} compared to your {}!'.format(comp_score,score))
+            print('\nYou won! The computer\'s score was {} compared to your {}!'.format(comp_score,score))
         if score > 21:
             if comp_score > 21:
-                print('It\'s a tie! You both busted!')
+                print('\nIt\'s a tie! You both busted!')
             else:
-                print('You busted! The computer won! His score was {}!'.format(comp_score))
+                print('\nYou busted! The computer won! His score was {}!'.format(comp_score))
         if comp_score == score:
-            print('You both tied! The computer\'s score was {} too!'.format(comp_score))
+            print('\nYou both tied! The computer\'s score was {} too!'.format(comp_score))
     except KeyboardInterrupt:
         print("\nThanks for playing!")
         exit()
