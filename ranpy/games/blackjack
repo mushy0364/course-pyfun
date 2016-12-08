@@ -14,8 +14,8 @@ def print_rules():
 
 def get_card_value(card):
     if card == 'Ace':
-        return 1
-    elif card.isdigit() and (1 < int(card) < 10):
+        return 11
+    elif card.isdigit() and (1 < int(card) <= 10):
         return int(card)
     elif card == 'Jack' or 'Queen' or 'King':
         return 10
@@ -39,6 +39,11 @@ def play(cards):
             continue
         else:
             break
+    if score > 21 and 11 in hand:
+        for n,i in enumerate(hand):
+            if i == 11:
+                hand[n] = 1
+        score = sum(hand)
 
 def computer_play(cards):
     global comp_score
@@ -70,6 +75,12 @@ if __name__ == '__main__':
                 print('\nIt\'s a tie! You both busted!')
             else:
                 print('\nYou busted! The computer won! His score was {}!'.format(comp_score))
+        elif comp_score > 21:
+            if score > 21:
+                print('\nIt\'s a tie! You both busted!')
+            else:
+                print('\nThe computer busted! You won!')
+
         elif comp_score == score:
             print('\nYou both tied! The computer\'s score was {} too!'.format(comp_score))
     except KeyboardInterrupt:
