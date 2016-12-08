@@ -55,7 +55,7 @@ def computer_play(cards):
 
 if __name__ == '__main__':
     try:
-        print("Hello and welcome to the casino where we play blackjack!")
+        print(c.clear + "Hello and welcome to the casino where we play blackjack!")
         rules = input("Would you like to read the rules? y/n > ").lower()
         if rules == "y":
             print_rules()
