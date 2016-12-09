@@ -9,7 +9,7 @@ cards = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', '
 def print_rules():
     print("\nThe goal of blackjack is to score 21 by adding up all of your cards.")
     print("You can draw for more points.")
-    print("All face cards are worth 10 points. Aces are ONLY 1 point.\n")
+    print("All face cards are worth 10 points. Aces are worth 11 points until you go over, which is when they switch to 1.\n")
     time.sleep(1)
 
 def get_card_value(card):
@@ -93,10 +93,10 @@ if __name__ == '__main__':
                 print('\nThe computer busted! You won!')
         elif comp_score == score:
             print('\nYou both tied! The computer\'s score was {} too!'.format(comp_score))
-        elif comp_score <= 21 and comp_score > score:
-            print('\nThe computer won! His score was {}!'.format(comp_score))
         elif score <= 21 and score > comp_score:
             print('\nYou won! The computer\'s score was {} compared to your {}!'.format(comp_score,score))
+        elif comp_score <= 21 and comp_score > score:
+            print('\nThe computer won! His score was {}!'.format(comp_score))
     except KeyboardInterrupt:
         print("\nThanks for playing!")
         exit()
