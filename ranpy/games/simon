@@ -2,7 +2,7 @@
 
 import random
 import time
-import skilstak.colors as c
+import colors as c
 
 numbers = []
 wins = 1
