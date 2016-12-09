@@ -3,25 +3,28 @@
 import random
 import time
 import skilstak.colors as c
-import sys
 
-number = random.randint(0,9)
-def simon(choice):
-    wins = 0
-    while wins <= 4:
-        print(choice)
-        time.sleep(.25)
-        print(c.clear + "")
-        chance = input(">")
-        if chance == choice:
-            wins +1
-            continue
-        else:
-            print("You lose!")
-            sys.exit()
-        
+numbers = []
+wins = 1
 
-while True:
-    choice = random.choice(number)
-    simon(choice)
+enter = input(c.clear + 'Welcome to simon! Type \'help\' for instructions. Press \'enter\' to continue: ')
+if enter == 'help':
+    print('\nThe goal of simon is to see how far you can go by typing in numbers that flash across the screen quickly.')
+    print('To type your number, type like this:')
+    print('Ex. 1, 2, 5, 3')
+    print('Be sure to use commas and spaces! Good Luck!\n')
+    help_enter = input('Press \'enter\' to continue: ')
 
+while True:    
+    number = random.randint(0,9)
+    numbers.append(number)
+    correct = ''.join(str(numbers)).strip('[]')
+    print(correct)
+    time.sleep(.25)
+    chance = input(c.clear + '> ')
+    if chance == correct:
+        wins += 1
+        continue
+    else:
+        print('You lost! You made it to round ' + str(wins) + '. The correct answer was "' + correct + '"') 
+        exit()
