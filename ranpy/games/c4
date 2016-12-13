@@ -55,4 +55,4 @@ try:
             player = 1
             continue
 except KeyboardInterrupt:
-    print('Thanks for playing!')
+    print('\nThanks for playing!')
