@@ -44,13 +44,30 @@ def turn(board,choice):
         board[5] = col2[1]
         board[1] = col2[0]
 
-    col3 = []
-    col3.extend([board[2],board[6],board[10],board[14]])
-    col4 = []
-    col4.extend([board[3],board[7],board[11],board[15]])
+    if choice == 3:
+        col3 = []
+        col3.extend([board[2],board[6],board[10],board[14]])
+        drop(col3,piece)
+        board[14] = col3[3]
+        board[10] = col3[2]
+        board[6] = col3[1]
+        board[2] = col3[0]
+    
+    if choice == 4:
+        col4 = []
+        col4.extend([board[3],board[7],board[11],board[15]])
+        drop(col4,piece)
+        board[15] = col4[3]
+        board[11] = col4[2]
+        board[7] = col4[1]
+        board[3] = col4[0]
+        
 
 def check_win(board):
-    row1 = board[]
+    '''row1 = board[]
+    row2 = 
+    row3 = 
+    row4 =''' 
 
 try:
     player = 1
@@ -59,8 +76,8 @@ try:
         draw_board(board)
         choice = int(input('Which column? > '))
         turn(board,choice)
-        if checkwin() = True:
-            print('Player ' + player + 'wins!')
+        #if checkwin() == True:
+         #   print('Player ' + player + 'wins!')
         if player == 1:
             player = 2
             continue
