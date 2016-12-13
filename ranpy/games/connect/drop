@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-col = ['','','','']
+col = [' ',' ',' ',' ']
 
 
 while True:
@@ -8,10 +8,10 @@ while True:
 
     if choice == 1:
         for n,i in reversed(list(enumerate(col))):
-            if i == '':
+            if i == ' ':
                 col[n] = 'X'
                 break
-            if '' not in col:
+            if ' ' not in col:
                 print('Invalid Move!')
-                break
+               break
         print(col)
