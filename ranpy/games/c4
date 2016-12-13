@@ -9,9 +9,12 @@ def draw_board(board):
     print(board[12] + '|' + board[13] + '|' + board[14] + '|' + board[15])
 
 def turn(board,choice):
-    if choice == 'col1':
+    if choice == 1:
         col1 = []
         col1.extend([board[0],board[4],board[8],board[12]])
+        for char in col1:
+            if char =! 'X' or 'O':
+                col1[-1] 
     
     col2 = []
     col1.extend([board[1],board[5],board[9],board[13]])
