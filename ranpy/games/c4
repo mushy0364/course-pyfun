@@ -3,7 +3,7 @@
 import colors as c
 
 def draw_board(board):
-    print(c.clear + '1|2|3|4')
+    print('1|2|3|4')
     print('-------')
     print(board[0] + '|' + board[1] + '|' + board[2] + '|' + board[3])
     print(board[4] + '|' + board[5] + '|' + board[6] + '|' + board[7])
@@ -79,12 +79,14 @@ try:
     piece = 'X'
     board = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
     while True:
+        print(c.clear + 'You are playing \'Connect 4!\' It is player ' + str(player) + ' turn!\n')
         draw_board(board)
-        choice = int(input('Which column? > '))
+        choice = int(input('\nWhich column? > '))
         turn(board,choice)
         if check_win(board,piece) == True:
+            print(c.clear)
             draw_board(board)
-            print('Player ' + str(player) + ' wins!')
+            print('\nPlayer ' + str(player) + ' wins!')
             exit()
         if player == 1:
             player = 2
