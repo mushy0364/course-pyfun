@@ -11,7 +11,7 @@ def print_slow(str):
         time.sleep(0.1)
 
 print(c.clear + "Ready to Cipher?")
-message = input("What message would you like to encode? > ")
+message = input("What message would you like to decode? > ")
 
 key_inverse = {
   "%$dv": "a",
