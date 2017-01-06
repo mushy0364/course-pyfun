@@ -2,5 +2,4 @@
 
 import wave
 
-wave.open(buzzer-06.wav, mode=rb)
-
+wave.open('beep-06.wav', 'rb')
