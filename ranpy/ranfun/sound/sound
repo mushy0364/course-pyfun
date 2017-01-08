@@ -1,5 +1,0 @@
-#!/usr/bin/env python3
-
-import wave
-
-wave.open('beep-06.wav', 'rb')
