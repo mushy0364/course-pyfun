@@ -1,13 +1,43 @@
 #!/usr/bin/env python3
 
+import colors as c
+
 equation = "a * (f(x) + b) + c"
 
-def ask_function():
-    selection = {"A":"x","B":"(x² + b)","C":"(x³ + b)","D":"√(x + b)","E":"|x + b|","F":"1/x"}
+def ask_function(equation):
     print("Which kind of function is the equation?")
-    print("A: Linear\nB: Quadratic\nC: Cubic\nD: Square Root\nE: Absolute Value\nF: Rational")
-    function_selection = input("> ").upper().strip()
-    equation = equation.replace("(f(x) + b)",selection[function_selection])
-    print(equation)
+    while True:
+        selection = {"A":"x","B":"(x² + b)","C":"(x³ + b)","D":"√(x + b)","E":"|x + b|"}
+        print("A: Linear\nB: Quadratic\nC: Cubic\nD: Square Root\nE: Absolute Value")
+        function_selection = input("> ").upper().strip()
+        if function_selection not in selection:
+            print(c.clear + "Please choose a valid function.")
+            continue
+        else:
+            equation = equation.replace("(f(x) + b)",selection[function_selection])
+            print(equation)
+            break
 
-ask_function()
+def get_var(equation):
+    global a,b,c
+    a = float(input("What is the 'a' value of the function? Please use decimals instead of fractions. > "))
+    equation = equation.replace("a",str(a))
+    b = float(input("What is the 'b' value of the function? Please use decimals instead of fractions. > "))
+    equation = equation.replace("b",str(b))
+    c = float(input("What is the 'c' value of the function? Please use decimals instead of fractions. > "))
+    equation = equation.replace("c",str(c))
+
+def find_values(equation):
+    xdomain = 
+    yrange = 
+    ioi = 
+    iod = 
+    extrema = 
+    end_behavior = 
+
+try:
+    ask_function(equation)
+    get_var(equation)
+except KeyboardInterrupt:
+    print("Thank you for using the program!")
+    exit()
