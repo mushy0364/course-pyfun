@@ -7,7 +7,7 @@ def ask_function():
     print("Which kind of function is the equation?")
     print("A: Linear\nB: Quadratic\nC: Cubic\nD: Square Root\nE: Absolute Value\nF: Rational")
     function_selection = input("> ").upper().strip()
-    equation.replace("(f(x) + b)",selection[function_selection])
+    equation = equation.replace("(f(x) + b)",selection[function_selection])
     print(equation)
 
 ask_function()
