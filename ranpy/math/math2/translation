@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 
-equation = 'a * (f(x) + b) + c'
+equation = "a * (f(x) + b) + c"
 
 def ask_function():
-    print("Which kind of function is this?")
+    selection = {"A":"x","B":"(x² + b)","C":"(x³ + b)","D":"√(x + b)","E":"|x + b|","F":"1/x"}
+    print("Which kind of function is the equation?")
     print("A: Linear\nB: Quadratic\nC: Cubic\nD: Square Root\nE: Absolute Value\nF: Rational")
+    function_selection = input("> ").upper().strip()
+    equation.replace("(f(x) + b)",selection[function_selection])
+    print(equation)
 
 ask_function()
