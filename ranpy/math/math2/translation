@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+
+equation = 'a * (f(x) + b) + c'
+
+def ask_function():
+    print("Which kind of function is this?")
+    print("A: Linear\nB: Quadratic\nC: Cubic\nD: Square Root\nE: Absolute Value\nF: Rational")
+
+ask_function()
