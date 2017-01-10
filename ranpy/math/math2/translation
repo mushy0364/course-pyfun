@@ -4,7 +4,8 @@ import colors as c
 
 equation = "a * (f(x) + b) + c"
 
-def ask_function(equation):
+def ask_function():
+    global equation
     print("Which kind of function is the equation?")
     while True:
         selection = {"A":"x","B":"(x² + b)","C":"(x³ + b)","D":"√(x + b)","E":"|x + b|"}
@@ -18,14 +19,15 @@ def ask_function(equation):
             print(equation)
             break
 
-def get_var(equation):
-    global a,b,c
+def get_var():
+    global a,b,c,equation
     a = float(input("What is the 'a' value of the function? Please use decimals instead of fractions. > "))
     equation = equation.replace("a",str(a))
     b = float(input("What is the 'b' value of the function? Please use decimals instead of fractions. > "))
     equation = equation.replace("b",str(b))
     c = float(input("What is the 'c' value of the function? Please use decimals instead of fractions. > "))
     equation = equation.replace("c",str(c))
+    print(equation)
 
 def find_values(equation):
     xdomain = 
@@ -36,8 +38,8 @@ def find_values(equation):
     end_behavior = 
 
 try:
-    ask_function(equation)
-    get_var(equation)
+    ask_function()
+    get_var()
 except KeyboardInterrupt:
     print("Thank you for using the program!")
     exit()
