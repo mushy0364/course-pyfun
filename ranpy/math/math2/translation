@@ -7,7 +7,7 @@ equation = "a * (f(x) + b) + c"
 def ask_function():
     print("Which kind of function is the equation?")
     while True:
-        selection = {"A":"x","B":"(x² + b)","C":"(x³ + b)","D":"√(x + b)","E":"|x + b|"}
+        selection = {"A":"x","B":"(x + b)²","C":"(x + b)³","D":"√(x + b)","E":"|x + b|"}
         print("A: Linear\nB: Quadratic\nC: Cubic\nD: Square Root\nE: Absolute Value")
         function_selection = input("> ").upper().strip()
         if function_selection not in selection:
@@ -37,21 +37,29 @@ def find_values(equation_type,a,b,c):
             iod = "(-∞,∞)"
             end_behavior = "As x → ∞, y → -∞ | As x → -∞, y → ∞"
         else:
+            ioi = "(-∞,∞)"
+            iod = "None"
+            end_behavior = "As x → ∞, y → ∞ | As x → -∞, y → -∞"
         extrema = "None"
     if equation_type == "(x² + b)":
-    if equation_type == "(x³ + b)":
+        xdomain = "(-∞,∞)"
+        yrange = "(-∞,∞)"
+        if a < 0:
+            ioi = "(-∞,0)"
+            iod = "(0,∞)"
+            extrema = "Max at ({},{})".format(-b,c)
+            end_behavior = "As x → ∞, y → -∞ | As x → -∞, y → -∞"
+        else:
+
+    '''if equation_type == "(x³ + b)":
     if equation_type == "√(x + b)":
-    if equation_type == "|x + b|":
-    xdomain = 
-    yrange = 
-    ioi = 
-    iod = 
-    extrema = 
-    end_behavior = 
+    if equation_type == "|x + b|":'''
+    print("Domain = {} \nRange = {} \nInterval of Increase = {} \nInterval of Decrease = {} \nExtrema = {} \nEnd Behavior = {}".format(xdomain,yrange,ioi,iod,extrema,end_behavior))
 
 try:
     equation_type = ask_function()
     a,b,c = get_var(equation_type)
+    find_values(equation_type,a,b,c)
 except KeyboardInterrupt:
     print("Thank you for using the program!")
     exit()
