@@ -5,7 +5,6 @@ import colors as c
 equation = "a * (f(x) + b) + c"
 
 def ask_function():
-    global equation
     print("Which kind of function is the equation?")
     while True:
         selection = {"A":"x","B":"(x² + b)","C":"(x³ + b)","D":"√(x + b)","E":"|x + b|"}
@@ -15,12 +14,11 @@ def ask_function():
             print(c.clear + "Please choose a valid function.")
             continue
         else:
-            equation = equation.replace("(f(x) + b)",selection[function_selection])
-            print(equation)
-            break
+            return selection[function_selection]
 
-def get_var():
-    global a,b,c,equation
+def get_var(type_of_eq):
+    equation = "a * {} + c".format(type_of_eq)
+    print(equation)
     a = float(input("What is the 'a' value of the function? Please use decimals instead of fractions. > "))
     equation = equation.replace("a",str(a))
     b = float(input("What is the 'b' value of the function? Please use decimals instead of fractions. > "))
@@ -28,8 +26,22 @@ def get_var():
     c = float(input("What is the 'c' value of the function? Please use decimals instead of fractions. > "))
     equation = equation.replace("c",str(c))
     print(equation)
+    return a,b,c
 
-def find_values(equation):
+def find_values(equation_type,a,b,c):
+    if equation_type == "x":
+        xdomain = "(-∞,∞)"
+        yrange = "(-∞,∞)"
+        if a < 0:
+            ioi = "None"
+            iod = "(-∞,∞)"
+            end_behavior = "As x → ∞, y → -∞ | As x → -∞, y → ∞"
+        else:
+        extrema = "None"
+    if equation_type == "(x² + b)":
+    if equation_type == "(x³ + b)":
+    if equation_type == "√(x + b)":
+    if equation_type == "|x + b|":
     xdomain = 
     yrange = 
     ioi = 
@@ -38,8 +50,8 @@ def find_values(equation):
     end_behavior = 
 
 try:
-    ask_function()
-    get_var()
+    equation_type = ask_function()
+    a,b,c = get_var(equation_type)
 except KeyboardInterrupt:
     print("Thank you for using the program!")
     exit()
