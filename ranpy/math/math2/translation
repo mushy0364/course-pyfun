@@ -2,7 +2,7 @@
 
 import colors as c
 
-equation = "a * (f(x) + b) + c"
+equation = "y = a * (f(x) + b) + c"
 
 def ask_function():
     print("Which kind of function is the equation?")
@@ -41,26 +41,43 @@ def find_values(equation_type,a,b,c):
             iod = "None"
             end_behavior = "As x → ∞, y → ∞ | As x → -∞, y → -∞"
         extrema = "None"
-        print("Domain = {} \nRange = {} \nInterval of Increase = {} \nInterval of Decrease = {} \nExtrema = {} \nEnd Behavior = {}".format(xdomain,yrange,ioi,iod,extrema,end_behavior))
-    if equation_type == "(x² + b)":
+    if equation_type == "(x + b)²":
         xdomain = "(-∞,∞)"
-        yrange = "(-∞,∞)"
         if a < 0:
+            yrange = "(-∞,{}]".format(c)
             ioi = "(-∞,0)"
             iod = "(0,∞)"
             extrema = "Max at ({},{})".format(-b,c)
             end_behavior = "As x → ∞, y → -∞ | As x → -∞, y → -∞"
         else:
+            yrange = "[{},∞)".format(c)
             ioi = "(0,∞)"
             iod = "(-∞,0)"
             extrema = "Min at ({},{})".format(-b,c)
             end_behavior = "As x → ∞, y → -∞ | As x → -∞, y → -∞"
-        print("Domain = {} \nRange = {} \nInterval of Increase = {} \nInterval of Decrease = {} \nExtrema = {} \nEnd Behavior = {}".format(xdomain,yrange,ioi,iod,extrema,end_behavior))
-    
-    '''if equation_type == "(x³ + b)":
+    if equation_type == "(x + b)³":
+        xdomain = "(-∞,∞)"
+        yrange = "(-∞,∞)"
+        if a < 0:
+            ioi = "None"
+            iod = "(-∞,∞)"
+            end_behavior = "As x → ∞, y → -∞ | As x → -∞, y → ∞"
+        else:
+            ioi = "(-∞,∞)"
+            iod = "None"
+            end_behavior = "As x → ∞, y → ∞ | As x → -∞, y → -∞"
+        extrema = "None"
+    print("Domain = {} \nRange = {} \nInterval of Increase = {} \nInterval of Decrease = {} \nExtrema = {} \nEnd Behavior = {}".format(xdomain,yrange,ioi,iod,extrema,end_behavior))
     if equation_type == "√(x + b)":
-    if equation_type == "|x + b|":'''
+        if a > 0:
+            xdomain = "[{},∞)".format(-b)
+            yrange = "(-∞,{}]".format(c)
+            ioi = "None"
+            iod = "[{},∞)".format(-b)
+            extrema = "Max at ({},{})".format(-b,c)
+            end_behavior = "As x → ∞, y → -∞"
 
+    if equation_type == "|x + b|":
 try:
     equation_type = ask_function()
     a,b,c = get_var(equation_type)
