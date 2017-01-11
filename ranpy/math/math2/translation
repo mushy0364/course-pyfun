@@ -41,6 +41,7 @@ def find_values(equation_type,a,b,c):
             iod = "None"
             end_behavior = "As x → ∞, y → ∞ | As x → -∞, y → -∞"
         extrema = "None"
+        print("Domain = {} \nRange = {} \nInterval of Increase = {} \nInterval of Decrease = {} \nExtrema = {} \nEnd Behavior = {}".format(xdomain,yrange,ioi,iod,extrema,end_behavior))
     if equation_type == "(x² + b)":
         xdomain = "(-∞,∞)"
         yrange = "(-∞,∞)"
@@ -50,11 +51,15 @@ def find_values(equation_type,a,b,c):
             extrema = "Max at ({},{})".format(-b,c)
             end_behavior = "As x → ∞, y → -∞ | As x → -∞, y → -∞"
         else:
-
+            ioi = "(0,∞)"
+            iod = "(-∞,0)"
+            extrema = "Min at ({},{})".format(-b,c)
+            end_behavior = "As x → ∞, y → -∞ | As x → -∞, y → -∞"
+        print("Domain = {} \nRange = {} \nInterval of Increase = {} \nInterval of Decrease = {} \nExtrema = {} \nEnd Behavior = {}".format(xdomain,yrange,ioi,iod,extrema,end_behavior))
+    
     '''if equation_type == "(x³ + b)":
     if equation_type == "√(x + b)":
     if equation_type == "|x + b|":'''
-    print("Domain = {} \nRange = {} \nInterval of Increase = {} \nInterval of Decrease = {} \nExtrema = {} \nEnd Behavior = {}".format(xdomain,yrange,ioi,iod,extrema,end_behavior))
 
 try:
     equation_type = ask_function()
