@@ -54,7 +54,7 @@ def find_values(equation_type,a,b,c):
             ioi = "(0,∞)"
             iod = "(-∞,0)"
             extrema = "Min at ({},{})".format(-b,c)
-            end_behavior = "As x → ∞, y → -∞ | As x → -∞, y → -∞"
+            end_behavior = "As x → ∞, y → ∞ | As x → -∞, y → ∞"
     if equation_type == "(x + b)³":
         xdomain = "(-∞,∞)"
         yrange = "(-∞,∞)"
@@ -67,21 +67,58 @@ def find_values(equation_type,a,b,c):
             iod = "None"
             end_behavior = "As x → ∞, y → ∞ | As x → -∞, y → -∞"
         extrema = "None"
-    print("Domain = {} \nRange = {} \nInterval of Increase = {} \nInterval of Decrease = {} \nExtrema = {} \nEnd Behavior = {}".format(xdomain,yrange,ioi,iod,extrema,end_behavior))
     if equation_type == "√(x + b)":
+        xdomain = "[{},∞)".format(-b)
         if a > 0:
-            xdomain = "[{},∞)".format(-b)
             yrange = "(-∞,{}]".format(c)
             ioi = "None"
             iod = "[{},∞)".format(-b)
             extrema = "Max at ({},{})".format(-b,c)
             end_behavior = "As x → ∞, y → -∞"
-
+        else:
+            yrange = "[{},∞)".format(c)
+            ioi = "[{},∞)".format(-b)
+            iod = "None"
+            extrema = "Min at ({},{})".format(-b,c)
+            end_behavior = "As x → ∞, y → ∞"
     if equation_type == "|x + b|":
+        xdomain = "(-∞,∞)"
+        if a < 0:
+            yrange = "(-∞,{}]".format(c)
+            ioi = "(-∞,0)"
+            iod = "(0,∞)"
+            extrema = "Max at ({},{})".format(-b,c)
+            end_behavior = "As x → ∞, y → -∞ | As x → -∞, y → -∞"
+        else:
+            yrange = "[{},∞)".format(c)
+            ioi = "(0,∞)"
+            iod = "(-∞,0)"
+            extrema = "Min at ({},{})".format(-b,c)
+            end_behavior = "As x → ∞, y → ∞ | As x → -∞, y → ∞" 
+    print("Domain = {} \nRange = {} \nInterval of Increase = {} \nInterval of Decrease = {} \nExtrema = {} \nEnd Behavior = {}".format(xdomain,yrange,ioi,iod,extrema,end_behavior))
+
+def get_translation(a,b,c):
+    print("Translations\n----------")
+    if a > 1 or a < -1:
+        print("Vertical stretch by a factor of {}".format(abs(a)))
+    if 0 < a < 1 or -1 > a > 0:
+        print("Vertical compression by a factor of {}".format(abs(a)))
+    if b < 0:
+        print("Translated right {}".format(-b))
+    if b > 0:
+        print("Translated left {}".format(b))
+    if a < 0:
+        print("Reflected over the x-axis")
+    if c > 0:
+        print("Translated up {}".format(c))
+    if c < 0:
+        print("Translated down {}".format(-c))
+
 try:
     equation_type = ask_function()
     a,b,c = get_var(equation_type)
     find_values(equation_type,a,b,c)
+    get_translation(a,b,c)
 except KeyboardInterrupt:
     print("Thank you for using the program!")
     exit()
