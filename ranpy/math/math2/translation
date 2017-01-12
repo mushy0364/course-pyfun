@@ -5,7 +5,7 @@ import colors as c
 equation = "y = a * (f(x) + b) + c"
 
 def ask_function():
-    print("Which kind of function is the equation?")
+    print("Please select the function of the equation.")
     while True:
         selection = {"A":"x","B":"(x + b)²","C":"(x + b)³","D":"√(x + b)","E":"|x + b|"}
         print("A: Linear\nB: Quadratic\nC: Cubic\nD: Square Root\nE: Absolute Value")
@@ -17,15 +17,19 @@ def ask_function():
             return selection[function_selection]
 
 def get_var(type_of_eq):
-    equation = "a * {} + c".format(type_of_eq)
-    print(equation)
+    equation = "y = a * {} + c".format(type_of_eq)
+    print("\n" + equation)
     a = float(input("What is the 'a' value of the function? Please use decimals instead of fractions. > "))
     equation = equation.replace("a",str(a))
-    b = float(input("What is the 'b' value of the function? Please use decimals instead of fractions. > "))
-    equation = equation.replace("b",str(b))
+    if type_of_eq == "x":
+        b = 0
+        equation = equation.replace("b",str(b))
+    else:
+        b = float(input("What is the 'b' value of the function? Please use decimals instead of fractions. > "))
+        equation = equation.replace("b",str(b))
     c = float(input("What is the 'c' value of the function? Please use decimals instead of fractions. > "))
     equation = equation.replace("c",str(c))
-    print(equation)
+    print("\n" + equation)
     return a,b,c
 
 def find_values(equation_type,a,b,c):
@@ -45,14 +49,14 @@ def find_values(equation_type,a,b,c):
         xdomain = "(-∞,∞)"
         if a < 0:
             yrange = "(-∞,{}]".format(c)
-            ioi = "(-∞,0)"
-            iod = "(0,∞)"
+            ioi = "(-∞,{})".format(-b)
+            iod = "({},∞)".format(-b)
             extrema = "Max at ({},{})".format(-b,c)
             end_behavior = "As x → ∞, y → -∞ | As x → -∞, y → -∞"
         else:
             yrange = "[{},∞)".format(c)
-            ioi = "(0,∞)"
-            iod = "(-∞,0)"
+            ioi = "({},∞)".format(-b)
+            iod = "(-∞,{})".format(-b)
             extrema = "Min at ({},{})".format(-b,c)
             end_behavior = "As x → ∞, y → ∞ | As x → -∞, y → ∞"
     if equation_type == "(x + b)³":
@@ -85,20 +89,20 @@ def find_values(equation_type,a,b,c):
         xdomain = "(-∞,∞)"
         if a < 0:
             yrange = "(-∞,{}]".format(c)
-            ioi = "(-∞,0)"
-            iod = "(0,∞)"
+            ioi = "(-∞,{})".format(-b)
+            iod = "({},∞)".format(-b)
             extrema = "Max at ({},{})".format(-b,c)
             end_behavior = "As x → ∞, y → -∞ | As x → -∞, y → -∞"
         else:
             yrange = "[{},∞)".format(c)
-            ioi = "(0,∞)"
-            iod = "(-∞,0)"
+            ioi = "({},∞)".format(-b)
+            iod = "(-∞,{})".format(-b)
             extrema = "Min at ({},{})".format(-b,c)
             end_behavior = "As x → ∞, y → ∞ | As x → -∞, y → ∞" 
     print("Domain = {} \nRange = {} \nInterval of Increase = {} \nInterval of Decrease = {} \nExtrema = {} \nEnd Behavior = {}".format(xdomain,yrange,ioi,iod,extrema,end_behavior))
 
 def get_translation(a,b,c):
-    print("Translations\n----------")
+    print("\nTranslations\n----------")
     if a > 1 or a < -1:
         print("Vertical stretch by a factor of {}".format(abs(a)))
     if 0 < a < 1 or -1 > a > 0:
@@ -115,6 +119,7 @@ def get_translation(a,b,c):
         print("Translated down {}".format(-c))
 
 try:
+    print(c.clear + "Welcome to the Translations Calculator!")
     equation_type = ask_function()
     a,b,c = get_var(equation_type)
     find_values(equation_type,a,b,c)
