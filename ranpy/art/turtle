@@ -2,4 +2,4 @@
 
 import turtle as t
 
-
+t.right(25)
