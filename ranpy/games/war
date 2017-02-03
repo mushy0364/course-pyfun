@@ -11,8 +11,6 @@ class Card:
 suits = ["diamond","heart","club","spade"]
 class_deck = [Card(value, suit) for value in range(2,15) for suit in suits]
 dealing_deck = []
-player_deck = []
-comp_deck = []
 cards = {2:"2", 3:"3", 4:"4", 5:"5", 6:"6", 7:"7", 8:"8", 9:"9", 10:"10", 11:"Jack", 12:"Queen", 13:"King", 14:"Ace"}
 for card in class_deck:
     dealing_deck.append((cards[card.value], card.suit))
@@ -21,22 +19,26 @@ def init_game():
     print("This is a program that runs the card game 'War.'")
     prompt = input("If you would like to read the rules, type `read`, otherwise, press enter. > ").lower().strip()
     if prompt == "read":
-        print("""Each player turns up a card at the same time and the player with the higher card takes both cards and puts them, face down, on the bottom of his stack.
-               If the cards are the same rank, it is War. Each player turns up three cards face down and one card face up.
-               The player with the higher card at the end takes both piles.""")
+        print("""\nEach player turns up a card at the same time and the player with the higher card takes both cards and puts them, face down, on the bottom of his stack.
+If the cards are the same rank, it is War. Each player turns up three cards face down and one card face up.
+The player with the higher card at the end takes both piles.\n""")
     else:
         pass
 
-def get_cards(playerd, compd, deald):
-    for x in range(26):
-        chosen = random.choice(deald)
-        playerd.append(chosen)
-        deald.remove(chosen)
-    for card in deald:
-        compd.append(card)
-        deald.remove(card)
+def get_cards(deald):
+    random.shuffle(deald)
+    playerd = [card for card in deald[:26]]
+    compd = [card for card in deald[26:]]
+    return playerd, compd
 
-init_game()
-get_cards(player_deck, comp_deck, dealing_deck)
-print(player_deck)
-print(comp_deck)
+def turn(playerd, compd):
+    random.shuffle(playerd)
+    random.shuffle(compd)
+    player_card = random.choice(playerd)
+    comp_card = random.choice(compd)
+    print("Your card is a {}, while your opponents is a {}.".format(player_card, comp_card))
+
+if __name__ == "__main__":
+    try:
+        init_game()
+        player_deck, comp_deck = get_cards(dealing_deck)
