@@ -28,18 +28,15 @@ def init_game():
         pass
 
 def get_cards(playerd, compd, deald):
-    cards_taken = 0
-    while cards_taken <= 26: 
+    for x in range(26):
         chosen = random.choice(deald)
         playerd.append(chosen)
         deald.remove(chosen)
-        cards_taken += 1
-    while cards_taken >= 26:
-        for card in deald:
-            compd.append(card)
-            deald.remove(card)
-            cards_taken += 1
+    for card in deald:
+        compd.append(card)
+        deald.remove(card)
 
 init_game()
 get_cards(player_deck, comp_deck, dealing_deck)
-print(dealing_deck)
+print(player_deck)
+print(comp_deck)
