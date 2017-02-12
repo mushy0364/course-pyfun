@@ -53,7 +53,6 @@ def war_turn(playerd, compd):
 
 
 def turn(playerd, compd):
-    while True:
         shuffle(playerd, compd)
         player_card = random.choice(playerd)
         comp_card = random.choice(compd)
@@ -62,18 +61,15 @@ def turn(playerd, compd):
             print("You gained your opponents card!")
             playerd.append(comp_card)
             compd.remove(comp_card)
-  #          post_win(playerd, compd)
             continue
         elif comp_card > player_card:
             print("You lost a card to your opponent!")
             compd.append(player_card)
             playerd.remove(player_card)
-  #          post_win(playerd, compd)
             continue
         elif player_card[0] == comp_card[0]:
             print("It's a war!")
             war_turn(playerd, compd)
-  #          post_win(playerd, compd)
             continue
 '''
 def check_win(playerd, compd):
