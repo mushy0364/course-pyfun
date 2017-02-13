@@ -61,6 +61,8 @@ def turn(playerd, compd):
             print("You gained your opponents card!")
             playerd.append(comp_card)
             compd.remove(comp_card)
+        print(comp_card[0])
+        print(player_card[0])
         elif comp_card[0] > player_card[0]:
             print("You lost a card to your opponent!")
             compd.append(player_card)
