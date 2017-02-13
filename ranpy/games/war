@@ -57,11 +57,7 @@ def turn(playerd, compd):
         player_card = random.choice(playerd)
         comp_card = random.choice(compd)
         print("\nYour card is a {}, while your opponents is a {}.".format(player_card, comp_card).replace("(","").replace("'","").replace(")",""))
-<<<<<<< HEAD
         if player_card[0] > comp_card[0]:
-=======
-        if player_card > comp_card:
->>>>>>> b98ff7eeac7809795a71717fa712e43526a5e66c
             print("You gained your opponents card!")
             playerd.append(comp_card)
             compd.remove(comp_card)
@@ -78,11 +74,7 @@ def turn(playerd, compd):
 def check_win(playerd, compd):
     if len(playerd) == 0:
         return True
-<<<<<<< HEAD
-    if len(compd) == 0:
-=======
     elif len(compd) == 0:
->>>>>>> b98ff7eeac7809795a71717fa712e43526a5e66c
         return True
     else:
         return False
