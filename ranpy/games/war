@@ -27,15 +27,23 @@ def shuffle(playerd, compd):
     random.shuffle(playerd)
     random.shuffle(compd)
 
-def face_turn(card):
+def face_turn(card, mode):
     face_cards = {"Jack":"11","Queen":"12","King":"13","Ace":"14"} 
-    try:
-        card = list(card)
-        card[0] = face_cards[card[0]]
-        card = tuple(card)
-        return card
-    except KeyError:
-        return card
+    num_cards = {"11":"Jack","12":"Queen","13":"King","14":"Ace"}
+    if mode == "face":
+        try:
+            card = list(card)
+            card[0] = face_cards[card[0]]
+            return tuple(card)
+        except KeyError:
+            return tuple(card)
+    if mode == "num":
+        try:
+            card = list(card)
+            card[0] = num_cards[card[0]]
+            return tuple(card)
+        except KeyError:
+            return tuple(card)
 
 def war_turn(playerd, compd):
     while True:
@@ -47,7 +55,9 @@ def war_turn(playerd, compd):
         for x in range(4):
             bet_card = random.choice(compd)
             bet_comp_cards.append(bet_card)
-        if int(face_turn(bet_player_cards[-1][0])) > int(face_turn(bet_comp_cards[-1][0])):
+        player_card = face_turn(bet_player_cards, "face")
+        comp_card = face_turn(bet_player_cards, "face")
+        if int(bet_player_cards[-1][0]) > int(bet_comp_cards[-1][0]):
             for card in bet_comp_cards:
                 playerd.append(card)
                 compd.remove(card)
@@ -63,20 +73,18 @@ def war_turn(playerd, compd):
 
 def turn(playerd, compd):
         shuffle(playerd, compd)
-        player_card = random.choice(playerd)
-        comp_card = random.choice(compd)
+        player_card = face_turn(random.choice(playerd), "face")
+        comp_card = face_turn(random.choice(compd), "face")
         print("\nYour card is a {}, while your opponents is a {}.".format(player_card, comp_card).replace("(","").replace("'","").replace(")",""))
-        print(face_turn((player_card)))
-        print(face_turn(comp_card))
-        if int(face_turn(player_card)) > int(face_turn(comp_card[0])):
+        if int(player_card[0]) > int(comp_card[0]):
             print("You gained your opponents card!")
-            playerd.append(comp_card)
-            compd.remove(comp_card)
-        elif int(face_turn(comp_card[0])) > int(face_turn(player_card[0])):
+            playerd.append(face_turn(comp_card, "num"))
+            compd.remove(face_turn(comp_card, "num"))
+        elif int(comp_card[0]) > int(player_card[0]):
             print("You lost a card to your opponent!")
-            compd.append(player_card)
-            playerd.remove(player_card)
-        elif int(face_turn(player_card[0])) == int(face_turn(comp_card[0])):
+            compd.append(face_turn(player_card, "num")
+            playerd.remove(face_turn(player_card, "num"))
+        elif int(player_card[0]) == int(comp_card[0]):
             print("It's a war!")
             war_turn(playerd, compd)
             
