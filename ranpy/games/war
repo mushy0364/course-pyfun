@@ -30,10 +30,13 @@ def shuffle(playerd, compd):
 
 def face_turn(card):
     face_cards = {"Jack":"11","Queen":"12","King":"13","Ace":"14"} 
-    if card[0] == "Jack" or "Queen" or "King" or "Ace":
-       card.replace(card[0],cards[card]) 
-    else:
-        return False
+    try:
+        card = list(card)
+        card = face_cards[card]
+        print(card)
+        return card
+    except KeyError:
+        return card
 
 def war_turn(playerd, compd):
     while True:
@@ -64,6 +67,7 @@ def turn(playerd, compd):
         player_card = random.choice(playerd)
         comp_card = random.choice(compd)
         print("\nYour card is a {}, while your opponents is a {}.".format(player_card, comp_card).replace("(","").replace("'","").replace(")",""))
+        print(face_turn(player_card[0]))
         if int(face_turn(player_card[0])) > int(face_turn(comp_card[0])):
             print("You gained your opponents card!")
             playerd.append(comp_card)
