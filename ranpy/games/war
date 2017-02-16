@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import colors as c
 import random
 
 class Card:
@@ -31,7 +30,9 @@ def shuffle(playerd, compd):
 def face_turn(card):
     face_cards = {"Jack":"11","Queen":"12","King":"13","Ace":"14"} 
     try:
-        card = face_cards[card]
+        card = list(card)
+        card[0] = face_cards[card[0]]
+        card = tuple(card)
         return card
     except KeyError:
         return card
@@ -65,8 +66,9 @@ def turn(playerd, compd):
         player_card = random.choice(playerd)
         comp_card = random.choice(compd)
         print("\nYour card is a {}, while your opponents is a {}.".format(player_card, comp_card).replace("(","").replace("'","").replace(")",""))
-        print(face_turn(list(player_card[0])))
-        if int(face_turn(player_card[0])) > int(face_turn(comp_card[0])):
+        print(face_turn((player_card)))
+        print(face_turn(comp_card))
+        if int(face_turn(player_card)) > int(face_turn(comp_card[0])):
             print("You gained your opponents card!")
             playerd.append(comp_card)
             compd.remove(comp_card)
