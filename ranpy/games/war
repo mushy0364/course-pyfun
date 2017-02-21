@@ -49,14 +49,18 @@ def war_turn(playerd, compd):
     while True:
         bet_player_cards = []
         for x in range(4):
-            bet_card = random.choice(playerd)
-            bet_player_cards.append(bet_card)
+            bet_pcard = random.choice(playerd)
+            bet_player_cards.append(bet_pcard)
         bet_comp_cards = []
         for x in range(4):
-            bet_card = random.choice(compd)
-            bet_comp_cards.append(bet_card)
-        player_card = face_turn(bet_player_cards[-1][0], "face")
-        comp_card = face_turn(bet_player_cards[-1][0], "face")
+            bet_ccard = random.choice(compd)
+            bet_comp_cards.append(bet_ccard)
+        player_card = face_turn(bet_player_cards[-1], "face")
+        comp_card = face_turn(bet_player_cards[-1], "face")
+        print(bet_player_cards[-1])
+        print(bet_player_cards[-1])
+        print(player_card)
+        print(comp_card)
         if int(player_card[0]) > int(comp_card[0]):
             for card in bet_comp_cards:
                 face_turn(card, "num")
