@@ -55,24 +55,23 @@ def war_turn(playerd, compd):
             bet_ccard = random.choice(compd)
             bet_comp_cards.append(bet_ccard)
         player_card = face_turn(bet_player_cards[-1], "face")
-        comp_card = face_turn(bet_player_cards[-1], "face")
-        print(bet_player_cards[-1])
-        print(bet_player_cards[-1])
-        print(player_card)
-        print(comp_card)
+        comp_card = face_turn(bet_comp_cards[-1], "face")
         if int(player_card[0]) > int(comp_card[0]):
+            print("You won the war! You gained these cards from your opponent: {}".format(bet_comp_cards).replace("[","").replace("]",""))
             for card in bet_comp_cards:
                 face_turn(card, "num")
-                playerd.append(card)
                 compd.remove(card)
+                playerd.append(card)
             break
         elif int(comp_card[0]) > int(player_card[0]):
+            print("You lost the war! You lost these cards to your opponent: {}".format(bet_player_cards).replace("[","").replace("]",""))
             for card in bet_player_cards:
                 face_turn(card, "num")
-                compd.append(card)
                 playerd.remove(card)
+                compd.append(card)
             break
         elif int(player_card[0]) == int(comp_card[0]):
+            print("It's another war!\n")
             continue
 
 
@@ -114,7 +113,7 @@ if __name__ == "__main__":
         player_deck, comp_deck = get_cards(dealing_deck)
         while win == False:
             turn(player_deck, comp_deck)
-            print(len(player_deck))
+            print("You have {} cards".format(len(player_deck)))
             win = check_win(player_deck, comp_deck)
             input("Press enter to continue > ")
         if win == True:
