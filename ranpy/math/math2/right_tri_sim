@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+
+import colors as c
+
+#def proportion_c(n1,n2):
+
+def pythag_thm(a, b, c):
+    if a == 'x':
+        x = (c**2 - b**2)**(1/2)
+    if b == 'x':
+        x = (c**2 - a**2)**(1/2)
+    if c == 'x':
+        x = (a**2+ b**2)**(1/2)
+    return x
+
+print(pythag_thm(3,'x',5))
