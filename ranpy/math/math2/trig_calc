@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+
+import colors as c
+import math
+
+def trig_ex():
+    print("""
+                SohCahToa
+                ---------
+    |\\         sin = opposite/hypotenuse | sin1 = s1/s3 | sin2 = s2/s3
+    |1\\        cos = adjacent/hypotenus  | cos1 = s2/s3 | cos2 = s1/s3
+ s2 |  \\ s3    tan = opposite/adjacent   | tan1 = s1/s2 | tan2 = s2/s1
+    |   \\
+    |   2\\
+    -------
+      s1
+    """)
+
+def inputting_values():
+    angle, m<angle = input("What is the angle, and what is it's measure? Ex.1, 70. If it is unknown, type 1, N/A. > ").split(', ')
+    function = input("What is the kind of function you would like to use to find the angle/side? (sin, cos, tan) > ")
+    if m<angle == "N/A":
+        s1, s2 = float(input("What are the two sides, according to " + function + "? Ex.12, 14 results in 12/14> "). split(', '))
+        inverse = True
+        return function, s1, s2, inverse
+    else:
+        s1 = input("What is the known side? > ")
+        inverse = False
+        return function, s1, inverse, m<angle
+
+def solve(function, side1, side2, inverse, m<angle):
+    if inverse == True:
+        if function
+    elif inverse == False:
+        if function == "sin":
+            sins1 = math.sin(side1)
+            sins2 = math.sin(side2)
+            angle = sins1/sins2
+            
+print("This is a trigonometry calculator.")
+trig_ex()
+try:
