@@ -22,22 +22,40 @@ def inputting_values():
     if mangle == "N/A":
         s1, s2 = float(input("What are the two sides, according to " + function + "? Ex.12, 14 results in 12/14 > "). split(', '))
         inverse = True
-        return function, s1, s2, inverse
     else:
-        s1 = input("What is the known side? > ")
+        s1 = float(input("What is the known side? > "))
         inverse = False
-        return function, s1, inverse, mangle
+        s2 = "N/A"
+    return function, s1, s2, inverse, float(mangle)
 
 def solve(function, side1, side2, inverse, mangle):
     #if inverse == True:
     #    if function
     if inverse == False:
+        sins1 = math.sin(math.radians(mangle))
         if function == "sin":
             side_type = input("Is " + side1 + "the opposite side of the angle or the hypostenuse of the triange? opp/hyp > ")
-            sins1 = math.sin(math.radians(side1))
-            if side_type = "opp":
-                side = math.degrees(sins1/mangle)
-
+            if side_type == "opp":
+                side = math.degrees(side1/sins1)
+            elif side_type == "hyp":
+                side = math.degrees(side1*sins1)
+        elif function == "cos":
+            side_type = input("Is " + side1 + "the adjacent side of the angle or the hypostenuse of the triange? adj/hyp > ")
+            if side_type == "adj":
+                side = math.degrees(side1/sins1)
+            elif side_type == "hyp":
+                side = math.degrees(side1*sins1)
+        elif function == "tan":
+            side_type = input("Is " + side1 + "the opposite side of the angle or the adjacent side? opp/adj > ")
+            if side_type == "opp":
+                side = math.degrees(side1/sins1)
+            elif side_type == "adj":
+                side = math.degrees(side1/sins1)
+        answer = side
+    return answer
             
 print("This is a trigonometry calculator.")
 trig_ex()
+function, side1, side2, inverse, mangle = inputting_values()
+answer = solve(function, side1, side2, inverse, mangle)
+print(answer)
