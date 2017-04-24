@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+
+print("This is a phrase converter.")
+
+try:
+    phrase = input("What is your phrase? > ").upper()
+    for char in phrase:
+        byte_letter = ' '.join(format(ord(x), 'b') for x in char)
+        print(byte_letter)
+except KeyboardInterrupt:
+    print("Goodbye!")
