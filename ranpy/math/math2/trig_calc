@@ -29,24 +29,30 @@ def inputting_values():
     return function, s1, s2, inverse, float(mangle)
 
 def solve(function, side1, side2, inverse, mangle):
-    #if inverse == True:
-    #    if function
+    if inverse == True:
+        if function == "sin":
+            angle = math.degrees(math.arcsin(math.radians(s1/s2)))
+        if function == "cos":
+            angle = math.degrees(math.arccos(math.radians(s1/s2)))
+        if function == "tan":
+            angle = math.degrees(math.arctan(math.radians(s1/s2)))
+        answer = side
     if inverse == False:
         sins1 = math.sin(math.radians(mangle))
         if function == "sin":
-            side_type = input("Is " + side1 + "the opposite side of the angle or the hypostenuse of the triange? opp/hyp > ")
+            side_type = input("Is " + str(side1) + " the opposite side of the angle or the hypostenuse of the triange? opp/hyp > ")
             if side_type == "opp":
                 side = math.degrees(side1/sins1)
             elif side_type == "hyp":
                 side = math.degrees(side1*sins1)
         elif function == "cos":
-            side_type = input("Is " + side1 + "the adjacent side of the angle or the hypostenuse of the triange? adj/hyp > ")
+            side_type = input("Is " + str(side1) + " the adjacent side of the angle or the hypostenuse of the triange? adj/hyp > ")
             if side_type == "adj":
                 side = math.degrees(side1/sins1)
             elif side_type == "hyp":
                 side = math.degrees(side1*sins1)
         elif function == "tan":
-            side_type = input("Is " + side1 + "the opposite side of the angle or the adjacent side? opp/adj > ")
+            side_type = input("Is " + str(side1) + " the opposite side of the angle or the adjacent side? opp/adj > ")
             if side_type == "opp":
                 side = math.degrees(side1/sins1)
             elif side_type == "adj":
